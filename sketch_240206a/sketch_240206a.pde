@@ -1,8 +1,16 @@
 //global variables
+
 //
-void setup(){}
+void setup(){
+  fullScreen();
+  //screensizechecker()
+  ball ballBall = new ball();
+  //ellipse(X, Y, BALLD, BALLD);//balls
+}
 //
-void draw (){}
+void draw (){
+  //empty loop
+}
 //
 void keyPressed(){}
 //
