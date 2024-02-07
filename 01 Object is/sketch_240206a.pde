@@ -1,13 +1,15 @@
-//global variables
+ //global variables
 
 //
 void setup(){
   fullScreen();
   //screensizechecker()
-  ball ballBall = new ball();
+  ball pongBall = new ball();
   //ellipse(X, Y, BALLD, BALLD);//balls
+  println("swag");
+  exit();//mimics garbage
 }
-//
+//garbage collection happens here
 void draw (){
   //empty loop
 }
