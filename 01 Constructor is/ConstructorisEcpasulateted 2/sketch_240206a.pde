@@ -10,6 +10,7 @@ void setup(){
 }
 //garbage collection happens here
 void draw (){
+    background(#FFFFFF);
   pongBall.draw();
   pongBall.step();
   //empty loop

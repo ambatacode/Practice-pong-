@@ -1,10 +1,11 @@
+
 class ball
 {
   //global variables
   float X, Y, BALLD;
   color Ballcolour;
   float Xspeed,Yspeed;
-  int Xdirection, ydirection;
+  float Xdirection, ydirection;
   //
   //Constructor
   ball () {
@@ -18,8 +19,8 @@ class ball
     Y = startY;
     BALLD = referentMesures * 1/20;
     Ballcolour = color (random(0,255),random(0,255),random(0,255));
-    Xspeed = displayWidth/displayWidth;
-    Yspeed = displayHeight/displayHeight;
+    Xspeed = displayWidth/displayWidth *9;
+    Yspeed = displayHeight/displayHeight*9;
     Xdirection = -1;
     ydirection = -1;
   }//end constructor
@@ -28,20 +29,20 @@ class ball
       fill(Ballcolour);
       ellipse(X, Y, BALLD, BALLD);
       fill(0);
+      step();
   }//end draw
   //
   void step() {
+     bounce();
     X += Xspeed;
     Y += Yspeed;
   }//end step
+  //
   void bounce() {
-    if () {
-      Xspeed *= -1*Xdirection;
-    }
-    if () {
-      Yspeed *= -1*ydirection;
-    }
+    if (X < 0+BALLD*1/2 || X > displayWidth-BALLD*1/2) Xspeed *= Xdirection;
+    if (Y < 0+BALLD || Y > displayHeight-BALLD*1/2) Yspeed *= ydirection;
   }//end bounce 
+
 }//end ball
 //
  
