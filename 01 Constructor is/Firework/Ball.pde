@@ -6,8 +6,10 @@ class ball
   color Ballcolour;
   float Xspeed,Yspeed;
   float Xdirection, Ydirection;
+  float gravity;
+  // static int count =28; // statoc number for the amount of ball instances
   //
-  //Constructor
+  //ball Constructor
   ball () {
     //constructor is hard coded, single variable object
     //local variables, deleted at end of constructor
@@ -23,10 +25,19 @@ class ball
     this.Yspeed = Ydirection();
     this.Xdirection = 7;//change speed change
     this.Ydirection = 7;
-    
-  }//end constructor
+     }//end ball constructor
   //
-  
+  ball (Float gravityParamiter) {
+    //ball();
+    X = mouseX; // trip error ball in goal
+    Y = mouseY;
+    Ballcolour = color (random(0,255),random(0,255),random(0,255));
+    BALLD = random(1/30);
+    Xspeed = random(-5,5);
+    Yspeed = random(-5,5);;
+    gravity = gravityParamiter;
+  }// end firework
+  //
   float Xdirection() {
     float Xdirection = int (random(-7,7));
     while(Xdirection == 0){
@@ -35,9 +46,9 @@ class ball
     return Xdirection;
   }
     float Ydirection() {
-      float Ydirection = int (random(-2,2));
+      float Ydirection = int (random(-7,7));
       while (Ydirection == 0){
-        Ydirection = int (random(-2,2));
+        Ydirection = int (random(-7,7));
       }
       return Ydirection;
     }
@@ -56,7 +67,7 @@ class ball
   }//end step
   //
   void bounce() {
-    if (X < 0+BALLD*1/2 || X > displayWidth-BALLD*1/2) Xspeed *= -1;
+  if (X < 0+BALLD*1/2 || X > displayWidth-BALLD*1/2) Xspeed *= -1;
     if (Y < 0+BALLD*1/2 || Y > displayHeight-BALLD*1/2) Yspeed *= -1;
     //
     if (X < 0+BALLD*1/2 || X > displayWidth-BALLD*1/2)Ballcolour = color (random(0,255),random(0,255),random(0,255));

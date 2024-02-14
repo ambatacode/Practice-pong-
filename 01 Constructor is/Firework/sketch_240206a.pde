@@ -1,27 +1,32 @@
  //global variables
  ball pongBall;
- ball liquidBall;
+ ball[] Fireworks = new ball[15];
 //
 void setup(){
   fullScreen();
   // ball variables
   pongBall = new ball();
-  liquidBall = new ball();
   //
 }
 //garbage collection happens here
 void draw (){
-    background(#000000);
+    //background(#000000);
   pongBall.draw();
-  liquidBall.draw();
   pongBall.step();
   println(pongBall.Xspeed, pongBall.Xspeed);
+      for (int i=0; i< Fireworks.length; i++) {
+    Fireworks[i] = new ball(0.5);
+  }
   //empty loop
 }
 //
 void keyPressed(){}
 //
-void mousePressed(){}
+void mousePressed(){
+    for (int i=0; i< Fireworks.length; i++) {
+    Fireworks[i] = new ball(0.5);
+  }
+}
 //
 void ballcollisions(){
   /*
