@@ -15,7 +15,7 @@ void draw (){
   pongBall.draw();
   liquidBall.draw();
   pongBall.step();
-  println(liquidBall.Xspeed, liquidBall.Yspeed);
+  println(pongBall.Xspeed, pongBall.Xspeed);
   //empty loop
 }
 //

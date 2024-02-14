@@ -5,7 +5,7 @@ class ball
   float X, Y, BALLD;
   color Ballcolour;
   float Xspeed,Yspeed;
-  float Xdirection, Ydirection, Xspeedc, Yspeedc;
+  float Xdirection, Ydirection;
   //
   //Constructor
   ball () {
@@ -21,16 +21,16 @@ class ball
     this.Ballcolour = color (random(0,255),random(0,255),random(0,255));
     this.Xspeed = Xdirection();
     this.Yspeed = Ydirection();
-    this.Xspeedc = 1;//change speed change
-    this.Yspeedc = 1;
+    this.Xdirection = 7;//change speed change
+    this.Ydirection = 7;
     
   }//end constructor
   //
   
   float Xdirection() {
-    float Xdirection = int (random(-2,2));
+    float Xdirection = int (random(-7,7));
     while(Xdirection == 0){
-      Xdirection = int (random(-2,2));//variable must be populated
+      Xdirection = int (random(-7,7));//variable must be populated
     }
     return Xdirection;
   }
@@ -51,8 +51,8 @@ class ball
   //
   void step() {
     bounce();
-    X += Xspeed * Xspeedc;
-    Y += Yspeed * Yspeedc;
+    X += Xspeed * Xdirection;
+    Y += Yspeed * Xdirection;
   }//end step
   //
   void bounce() {
