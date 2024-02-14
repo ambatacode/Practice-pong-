@@ -6,7 +6,7 @@ class ball
   color Ballcolour;
   float Xspeed,Yspeed;
   float Xdirection, Ydirection;
-  float gravity;
+  float gravity=0.5;
   // static int count =28; // statoc number for the amount of ball instances
   //
   //ball Constructor
@@ -62,6 +62,7 @@ class ball
   //
   void step() {
     bounce();
+    Yspeed += gravity;
     X += Xspeed * Xdirection;
     Y += Yspeed * Xdirection;
   }//end step
