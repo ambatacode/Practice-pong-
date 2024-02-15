@@ -27,7 +27,7 @@ class ball
     this.Yspeedchange = 1;
   }//end ball constructor
   //
-  ball (Float gravityParamiter) {
+  ball (int X, int Y, Float gravityParamiter) {
     //ball();
     this.X = X; // trip error ball in goal
     this.Y = Y;

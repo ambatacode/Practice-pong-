@@ -14,7 +14,7 @@ void setup() {
 }
 //garbage collection happens here
 void draw () {
-  //background(#000000);
+  background(#000000);
   pongBall.draw();
 
   println(pongBall.Xspeed, pongBall.Xspeed);
