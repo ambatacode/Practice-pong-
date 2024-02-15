@@ -38,6 +38,18 @@ class ball
     gravity = gravityParamiter;
   }// end firework
   //
+  // must look like ball 
+  ball (int XPARA, int YPARA, float DIAPARA, float COLORPARA) {
+    this.X = XPARA;
+    this.Y = YPARA;
+    this.BALLD = DIAPARA;
+    this.Ballcolour = color (random(0, 255), random(0, 255), random(0, 255));
+    this.Xspeed = Xdirection();
+    this.Yspeed = Ydirection();
+    this.Xspeedchange = 1;//change speed change
+    this.Yspeedchange = 1;
+  }//end cheat ball
+  //
   float Xdirection() {
     float Xdirection = int (random(-7, 7));
     while (Xdirection == 0) {
@@ -70,7 +82,7 @@ class ball
   void bounce() {
     if (X < 0+BALLD*1/2 || X > displayWidth-BALLD*1/2) Xspeed *= -1;
     if (Y < 0+BALLD*1/2 || Y > displayHeight-BALLD*1/2) Yspeed *= -1;
-    //
+    //color switcher
     if (X < 0+BALLD*1/2 || X > displayWidth-BALLD*1/2)Ballcolour = color (random(0, 255), random(0, 255), random(0, 255));
     if (Y < 0+BALLD*1/2 || Y > displayHeight-BALLD*1/2)Ballcolour = color (random(0, 255), random(0, 255), random(0, 255));
   }//end bounce
