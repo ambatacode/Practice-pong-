@@ -7,6 +7,7 @@ class ball
   float Xspeed, Yspeed;
   float Yspeedchange = 1.0, Xspeedchange = 1.0;
   float gravity=0.0;
+  float explosiondirection;
   // static int count =28; // statoc number for the amount of ball instances
   //
   //ball Constructor
@@ -20,14 +21,14 @@ class ball
     this.X = startX;
     this.Y = startY;
     this.BALLD = referentMesures * 1/20;
-    this.Ballcolour = color (random(0, 255), random(0, 255), random(0, 255));
+    this.Ballcolour = color (#FFFFFF);
     this.Xspeed = Xdirection();
     this.Yspeed = Ydirection();
-    this.Xspeedchange = 1;//change speed change
-    this.Yspeedchange = 1;
+    this.Xspeedchange = 2;//change speed change
+    this.Yspeedchange = 2;
   }//end ball constructor
   //
-  ball (int X, int Y, Float gravityParamiter) {
+  ball (float X, float Y, Float gravityParamiter) {
     //ball();
     this.X = X; // trip error ball in goal
     this.Y = Y;
@@ -38,16 +39,16 @@ class ball
     gravity = gravityParamiter;
   }// end firework
   //
-  // must look like ball 
+  // must look like ball
   ball (int XPARA, int YPARA, float DIAPARA, float COLORPARA) {
     this.X = XPARA;
     this.Y = YPARA;
     this.BALLD = DIAPARA;
     this.Ballcolour = color (random(0, 255), random(0, 255), random(0, 255));
-    this.Xspeed = Xdirection();
-    this.Yspeed = Ydirection();
-    this.Xspeedchange = 1;//change speed change
-    this.Yspeedchange = 1;
+    this.Xspeed = pongBall.Xspeed;
+    this.Yspeed = pongBall.Yspeed;
+    this.Xspeedchange = 2;//change speed change
+    this.Yspeedchange = 2;
   }//end cheat ball
   //
   float Xdirection() {
@@ -80,11 +81,13 @@ class ball
   }//end step
   //
   void bounce() {
-    if (X < 0+BALLD*1/2 || X > displayWidth-BALLD*1/2) Xspeed *= -1;
+    if (X < 0+BALLD*2/1) Ballcolour = color(#FF0000);
+    if (X > displayWidth-BALLD*2/1) Ballcolour = color (#00FF00);
+
+    if (X < 0+BALLD*1/2 || X > displayWidth-BALLD*1/2)  Xspeed *= -1;
     if (Y < 0+BALLD*1/2 || Y > displayHeight-BALLD*1/2) Yspeed *= -1;
-    //color switcher
-    if (X < 0+BALLD*1/2 || X > displayWidth-BALLD*1/2)Ballcolour = color (random(0, 255), random(0, 255), random(0, 255));
-    if (Y < 0+BALLD*1/2 || Y > displayHeight-BALLD*1/2)Ballcolour = color (random(0, 255), random(0, 255), random(0, 255));
-  }//end bounce
+  }
+
+
 }//end ball
 //

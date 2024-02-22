@@ -1,6 +1,6 @@
 //global variables
 ball pongBall;
-ball[] Fireworks = new ball[15];
+ball[] Fireworks = new ball[50];
 ball Cheatball;
 //
 
@@ -12,7 +12,7 @@ void setup() {
   for (int i=0; i< Fireworks.length; i++) {
     Fireworks[i] = new ball(displayWidth*-1, displayHeight*-1, 0.5);
   }
-  Cheatball = new ball(displayWidth*-1, displayHeight*-1,0.0,0.0);
+  Cheatball = new ball(displayWidth*-1, displayHeight*-1, 0.0, 0.0);
 }
 //garbage collection happens here
 void draw () {
@@ -20,19 +20,23 @@ void draw () {
   pongBall.draw();
 
   println(pongBall.Xspeed, pongBall.Xspeed);
+ /* if (pongBall.X>(2*pongBall.BALLD)&&(X > 0+pongBall.BALLD*3/1)|| pongBall.X>(displayWidth - 2*pongBall.BALLD) ) {
+    netexpo(pongBall.X,pongBall.Y);
+  */
+  if (X > 0+BALLD*2/1|| pongBall.X>(displayWidth - 2*pongBall.BALLD) ) {
+    netexpo(pongBall.X,pongBall.Y);
+    
+  Cheatball.draw();
   for (int i=0; i< Fireworks.length; i++) {
     Fireworks[i].draw();
   }
-  Cheatball.draw();
 }
 //
 void keyPressed() {
 }
 //
 void mousePressed() {
-  for (int i=0; i< Fireworks.length; i++) {
-    Fireworks[i] = new ball(mouseX, mouseY, 0.5);
-  }
+
   Cheatball = new ball(mouseX, mouseY, pongBall.BALLD, pongBall.Ballcolour);
 }
 //
