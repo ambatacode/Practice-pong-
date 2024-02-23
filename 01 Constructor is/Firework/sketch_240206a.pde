@@ -20,17 +20,17 @@ void draw () {
   pongBall.draw();
 
   println(pongBall.Xspeed, pongBall.Xspeed);
- /* if (pongBall.X>(2*pongBall.BALLD)&&(X > 0+pongBall.BALLD*3/1)|| pongBall.X>(displayWidth - 2*pongBall.BALLD) ) {
-    netexpo(pongBall.X,pongBall.Y);
-  */
-  if (X > 0+BALLD*2/1|| pongBall.X>(displayWidth - 2*pongBall.BALLD) ) {
-    netexpo(pongBall.X,pongBall.Y);
-    
-  Cheatball.draw();
-  for (int i=0; i< Fireworks.length; i++) {
-    Fireworks[i].draw();
+  /* if (pongBall.X>(2*pongBall.BALLD)&&(X > 0+pongBall.BALLD*3/1)|| pongBall.X>(displayWidth - 2*pongBall.BALLD) ) {
+   netexpo(pongBall.X,pongBall.Y);
+   */
+  if (pongBall.X < displayWidth*1/20 && pongBall.X > displayWidth*0.1/20||pongBall.X < displayWidth*20/20 && pongBall.X > displayWidth*19.7/20 ) {
+    netexpo(pongBall.X, pongBall.Y);
   }
-}
+    Cheatball.draw();
+    for (int i=0; i< Fireworks.length; i++) {
+      Fireworks[i].draw();
+    }
+  }
 //
 void keyPressed() {
 }

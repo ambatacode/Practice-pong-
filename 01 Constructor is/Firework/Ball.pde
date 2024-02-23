@@ -24,15 +24,15 @@ class ball
     this.Ballcolour = color (#FFFFFF);
     this.Xspeed = Xdirection();
     this.Yspeed = Ydirection();
-    this.Xspeedchange = 2;//change speed change
-    this.Yspeedchange = 2;
+    this.Xspeedchange = 4;//change speed change
+    this.Yspeedchange = 4;
   }//end ball constructor
   //
   ball (float X, float Y, Float gravityParamiter) {
     //ball();
     this.X = X; // trip error ball in goal
     this.Y = Y;
-    this.Ballcolour = color (random(0, 255), random(0, 255), random(0, 255));
+    this.Ballcolour = color (#FFFFFF);
     this.BALLD = random(displayWidth*1/30);
     this.Xspeed = random(-5, 5);
     this.Yspeed = random(-5, 5);
@@ -67,10 +67,12 @@ class ball
   }
 
   void draw () {
+    noStroke();
     fill(Ballcolour);
     ellipse(X, Y, BALLD, BALLD);//easteregg @ bounce diamater changes
     fill(0);
     step();
+    stroke(#000000);
   }//end draw
   //
   void step() {
@@ -81,11 +83,11 @@ class ball
   }//end step
   //
   void bounce() {
-    if (X < 0+BALLD*2/1) Ballcolour = color(#FF0000);
-    if (X > displayWidth-BALLD*2/1) Ballcolour = color (#00FF00);
+    //if (X < 0+BALLD*2/1) Ballcolour = color(#FF0000);
+    //if (X > displayWidth-BALLD*2/1) Ballcolour = color (#00FF00);
 
-    if (X < 0+BALLD*1/2 || X > displayWidth-BALLD*1/2)  Xspeed *= -1;
-    if (Y < 0+BALLD*1/2 || Y > displayHeight-BALLD*1/2) Yspeed *= -1;
+    //if (X < 0+BALLD*1/2 || X > displayWidth-BALLD*1/2)  Xspeed *= -1;
+    if (Y < 0+BALLD*1/2 || Y > displayHeight+BALLD*1/2) Yspeed *= -1;
   }
 
 
