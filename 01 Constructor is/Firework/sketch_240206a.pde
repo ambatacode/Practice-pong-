@@ -1,54 +1,62 @@
 //global variables
+
+boolean newgame = false;
+
 ball pongBall;
 ball[] Fireworks = new ball[50];
 ball Cheatball;
+ball coin;
 //
 
 //
 void setup() {
-  fullScreen();  
+  fullScreen();
   // ball variables
   pongBall = new ball();
   for (int i=0; i< Fireworks.length; i++) {
     Fireworks[i] = new ball(displayWidth*-1, displayHeight*-1, 0.5);
   }
   Cheatball = new ball(displayWidth*-1, displayHeight*-1, 0.0, 0.0);
-  
 }
 //garbage collection happens here
 void draw () {
   background(#000000);
-  pongBall.draw();
+  if (newgame == false)pongBall.draw();
+  if (newgame == true) pongBall.X = displayWidth *1/2;
+  if (newgame == true) pongBall.Y = displayHeight *1/2;
   noStroke();
   fill(#FFFFFF);
-  rect(displayWidth*0.985/2, 0.1 , 30, displayHeight);
+  rect((displayWidth * 1/2 - 10), 0.1, 20, displayHeight);
   noFill();
   stroke(#000000);
 
-  println(pongBall.Xspeed, pongBall.Xspeed);
-  /* if (pongBall.X>(2*pongBall.BALLD)&&(X > 0+pongBall.BALLD*3/1)|| pongBall.X>(displayWidth - 2*pongBall.BALLD) ) {
-   netexpo(pongBall.X,pongBall.Y);
-   */
+  println(newgame);
+
   if (pongBall.X < displayWidth*1/20 && pongBall.X > displayWidth*0.1/20||pongBall.X < displayWidth*20/20 && pongBall.X > displayWidth*19.7/20 ) {
     netexpo(pongBall.X, pongBall.Y);
   }
-    Cheatball.draw();
-    for (int i=0; i< Fireworks.length; i++) {
-      Fireworks[i].draw();
-    }
-    if (Cheatball.X < displayWidth*1/20 && Cheatball.X > displayWidth*0.1/20||Cheatball.X < displayWidth*20/20 && Cheatball.X > displayWidth*19.7/20 ) {
+  Cheatball.draw();
+  for (int i=0; i< Fireworks.length; i++) {
+    Fireworks[i].draw();
+  }
+  if (Cheatball.X < displayWidth*1/20 && Cheatball.X > displayWidth*0.1/20||Cheatball.X < displayWidth*20/20 && Cheatball.X > displayWidth*19.7/20 ) {
     netexpo(Cheatball.X, Cheatball.Y);
   }
-    Cheatball.draw();
-    for (int i=0; i< Fireworks.length; i++) {
-      Fireworks[i].draw();
-    }
+  Cheatball.draw();
+  for (int i=0; i< Fireworks.length; i++) {
+    Fireworks[i].draw();
   }
+}
 //
 void keyPressed() {
 }
 //
 void mousePressed() {
+  if (newgame == true) {
+    newgame = false;
+  } else if (newgame == false) {
+    newgame = true;
+  }
 
   Cheatball = new ball(mouseX, mouseY, pongBall.BALLD, pongBall.Ballcolour);
 }

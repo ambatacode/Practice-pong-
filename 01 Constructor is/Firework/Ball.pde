@@ -24,8 +24,8 @@ class ball
     this.Ballcolour = color (#FFFFFF);
     this.Xspeed = Xdirection();
     this.Yspeed = Ydirection();
-    this.Xspeedchange = 4;//change speed change
-    this.Yspeedchange = 4;
+    this.Xspeedchange = 15;//change speed change
+    this.Yspeedchange = 15;
   }//end ball constructor
   //
   ball (float X, float Y, Float gravityParamiter) {
@@ -47,21 +47,25 @@ class ball
     this.Ballcolour = color (random(0, 255), random(0, 255), random(0, 255));
     this.Xspeed = pongBall.Xspeed;
     this.Yspeed = pongBall.Yspeed;
-    this.Xspeedchange = 2;//change speed change
-    this.Yspeedchange = 2;
+    this.Xspeedchange = 5;//change speed change
+    this.Yspeedchange = 5;
   }//end cheat ball
   //
+  ball (int Xpara, int Ypara) {
+    
+  }// end coin
+  //
   float Xdirection() {
-    float Xdirection = int (random(-7, 7));
+    float Xdirection = int (random(-3, 3));
     while (Xdirection == 0) {
-      Xdirection = int (random(-7, 7));//variable must be populated
+      Xdirection = int (random(-3, 3));//variable must be populated
     }
     return Xdirection;
   }
   float Ydirection() {
-    float Ydirection = int (random(-7, 7));
+    float Ydirection = int (random(-3, 3));
     while (Ydirection == 0) {
-      Ydirection = int (random(-7, 7));
+      Ydirection = int (random(-3, 3));
     }
     return Ydirection;
   }
@@ -92,4 +96,13 @@ class ball
 
 
 }//end ball
+//
+/*class paddle {
+      float X, Y;
+      float paddleWidth, paddleheight;
+      float 
+  paddle() {
+  }
+}// end paddle
+  */
 //
