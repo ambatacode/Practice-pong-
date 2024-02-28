@@ -56,16 +56,16 @@ class ball
   }// end coin
   //
   float Xdirection() {
-    float Xdirection = int (random(-3, 3));
+    float Xdirection = int (random(-2, 2));
     while (Xdirection == 0) {
-      Xdirection = int (random(-3, 3));//variable must be populated
+      Xdirection = int (random(-2, 2));//variable must be populated
     }
     return Xdirection;
   }
   float Ydirection() {
-    float Ydirection = int (random(-3, 3));
+    float Ydirection = int (random(-2, 2));
     while (Ydirection == 0) {
-      Ydirection = int (random(-3, 3));
+      Ydirection = int (random(-2, 2));
     }
     return Ydirection;
   }
@@ -96,13 +96,4 @@ class ball
 
 
 }//end ball
-//
-/*class paddle {
-      float X, Y;
-      float paddleWidth, paddleheight;
-      float 
-  paddle() {
-  }
-}// end paddle
-  */
 //
