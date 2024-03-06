@@ -22,12 +22,14 @@ void setup() {
   }
   Cheatball = new ball(displayWidth*-1, displayHeight*-1, 0.0, 0.0);  
   
-  mypaddle = new paddle(0);
-  savagepaddle =new paddle(displayWidth);
+  mypaddle = new paddle(0, pongBall.BALLD);
+  savagepaddle =new paddle(displayWidth, pongBall.BALLD);
 }
 //garbage collection happens here
 void draw () {
   background(#000000);
+  mypaddle.draw();
+  savagepaddle.draw();
   if (newgame == false)pongBall.draw();
   if (newgame == true) pongBall.X = displayWidth *1/2;
   if (newgame == true) pongBall.Y = displayHeight *1/2;
