@@ -4,7 +4,7 @@ boolean newgame = true;
 boolean gamestart = false;
 boolean eventselector = false;
 float EVENTCHOOSER = 0;
- 
+boolean up=false, down=false;
 ball pongBall;
 ball[] Fireworks = new ball[50];
 ball Cheatball;
@@ -20,8 +20,8 @@ void setup() {
   for (int i=0; i< Fireworks.length; i++) {
     Fireworks[i] = new ball(displayWidth*-1, displayHeight*-1, 0.5);
   }
-  Cheatball = new ball(displayWidth*-1, displayHeight*-1, 0.0, 0.0);  
-  
+  Cheatball = new ball(displayWidth*-1, displayHeight*-1, 0.0, 0.0);
+
   mypaddle = new paddle(0, pongBall.BALLD);
   savagepaddle =new paddle(displayWidth, pongBall.BALLD);
 }
@@ -58,6 +58,10 @@ void draw () {
 }
 //
 void keyPressed() {
+  if (key =='W'| key=='w') mypaddle.up = true;
+  if (key =='S'| key=='s')  mypaddle.down = true ;
+  if (key =='O' | key=='o') savagepaddle.up = true;
+  if (key =='l' | key=='l') savagepaddle.down = true;
 }
 //
 void mousePressed() {
@@ -80,7 +84,6 @@ void ballcollisions() {
    */
 }
 void HUD() {
-  
 }// end HUD
 //
 //End driver
