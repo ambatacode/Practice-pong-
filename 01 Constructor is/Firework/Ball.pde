@@ -91,7 +91,7 @@ class ball
     //if (X > displayWidth-BALLD*2/1) Ballcolour = color (#00FF00);
 
     //if (X < 0+BALLD*1/2 || X > displayWidth-BALLD*1/2)  Xspeed *= -1;
-    if (Y < 0+BALLD*1/2 || Y > displayHeight+BALLD*-1/2) Yspeed *= -1;
+    if (Y < mypaddle.TABLEY+BALLD*1/2 || Y > mypaddle.TABLEHEIGHT+mypaddle.TABLEY - BALLD*-1/2) Yspeed *= -1;
   }
 
 

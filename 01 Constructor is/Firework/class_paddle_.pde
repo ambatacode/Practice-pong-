@@ -43,14 +43,29 @@ class paddle {
     this.movePaddledown();
   }
   }//end paddles
+  void wspress() {
+  if (key =='W'| key=='w') mypaddle.up = true;
+  if (key =='S'| key=='s')  mypaddle.down = true ;
+}
+  void wspressrel() {
+  if (key =='W'| key=='w') mypaddle.up = false;
+  if (key =='S'| key=='s')  mypaddle.down = false ;
+}
+void keypressedOL() {
+  if (key =='O' | key=='o') savagepaddle.up = true;
+  if (key =='l' | key=='l') savagepaddle.down = true;
+}
+void keypressedOLrel() {
+  if (key =='O' | key=='o') savagepaddle.up = false;
+  if (key =='l' | key=='l') savagepaddle.down = false;
+}
   void movePaddledown(){
     paddleY += Paddletraveldistance;
     if(paddleY > TABLEY+TABLEHEIGHT-paddleHeight) paddleY = TABLEY+TABLEHEIGHT -paddleHeight;
-    down = false;
   }
   void movePaddleup(){
     paddleY -= Paddletraveldistance ;
     if(paddleY < TABLEY) paddleY = TABLEY;
-    up = false;
+
   }
 }// end paddle
