@@ -5,6 +5,7 @@ class paddle {
   float paddleX, paddleY, paddleWidth, paddleHeight,paddlestartheight;
   float Paddletraveldistance;
   color paddlecolor;
+  color overlaycolor;
   boolean up=false, down=false;
   paddle (float paddleXparamater, float balld) {
     netWidth = balld * 3;
@@ -27,6 +28,7 @@ class paddle {
     this.Paddletraveldistance =10;
 
     paddlecolor = (#FFFFFF) ;
+    overlaycolor = (#2e2e2e);
   }//end paddle
   void draw() {
     paddles();
@@ -43,6 +45,9 @@ class paddle {
     this.movePaddledown();
   }
   }//end paddles
+  void overlay() {
+    
+  }
   void wspress() {
   if (key =='W'| key=='w') mypaddle.up = true;
   if (key =='S'| key=='s')  mypaddle.down = true ;
