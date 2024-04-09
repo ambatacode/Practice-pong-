@@ -91,7 +91,7 @@ class ball
     //if (X > displayWidth-BALLD*2/1) Ballcolour = color (#00FF00);
     if (X < mypaddle.paddleX+mypaddle.paddleWidth+BALLD*1/2 && X >  mypaddle.paddleX && Y > mypaddle.paddleY && Y < mypaddle.paddleY + mypaddle.paddleHeight) Xspeed *= -1;
     if (X > savagepaddle.paddleX - BALLD*1/2 && X < savagepaddle.paddleX && Y > savagepaddle.paddleY && Y < savagepaddle.paddleY + savagepaddle.paddleHeight )  Xspeed *= -1;
-    if (Y < mypaddle.TABLEY+BALLD*1/2 || Y > mypaddle.TABLEHEIGHT+mypaddle.TABLEY - BALLD*-1/2) Yspeed *= -1;
+    if (Y < mypaddle.TABLEY+BALLD*1/2 || Y > mypaddle.TABLEHEIGHT+mypaddle.TABLEY - BALLD*1/2) Yspeed *= -1;
   }
 
 

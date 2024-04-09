@@ -10,6 +10,7 @@ ball[] Fireworks = new ball[50];
 ball Cheatball;
 ball coin;
 paddle mypaddle, savagepaddle;
+paddle topbox, bottombox;
 //
 
 //
@@ -21,6 +22,7 @@ void setup() {
     Fireworks[i] = new ball(displayWidth*-1, displayHeight*-1, 0.5);
   }
   Cheatball = new ball(displayWidth*-1, displayHeight*-1, 0.0, 0.0);
+  topbox = new paddle(0);
 
   mypaddle = new paddle(0, pongBall.BALLD);
   savagepaddle =new paddle(displayWidth, pongBall.BALLD);
@@ -28,8 +30,10 @@ void setup() {
 //garbage collection happens here
 void draw () {
   background(#000000);
+  hudrect();
   mypaddle.draw();
   savagepaddle.draw();
+  topbox.draw();
   if (newgame == false)pongBall.draw();
   if (newgame == true) pongBall.X = displayWidth *1/2;
   if (newgame == true) pongBall.Y = displayHeight *1/2;

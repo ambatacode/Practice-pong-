@@ -4,6 +4,7 @@ class paddle {
   float netX, netY, netWidth, netHeight;
   float paddleX, paddleY, paddleWidth, paddleHeight,paddlestartheight;
   float Paddletraveldistance;
+  float hudX, hudW, hudH, hudy;
   color paddlecolor;
   color overlaycolor;
   boolean up=false, down=false;
@@ -30,8 +31,17 @@ class paddle {
     paddlecolor = (#FFFFFF) ;
     overlaycolor = (#2e2e2e);
   }//end paddle
+  
+  paddle(float Xpara) {
+    hudX = Xpara;
+    hudy = 0;
+    hudW = TABLEWIDTH;
+    hudH = TABLEHEIGHT;
+  }
+  
   void draw() {
     paddles();
+    overlay();
 
   }
   void paddles() {
@@ -46,7 +56,9 @@ class paddle {
   }
   }//end paddles
   void overlay() {
-    
+    fill(overlaycolor);
+    rect (hudX, hudy, hudW, hudH );
+    fill(0);
   }
   void wspress() {
   if (key =='W'| key=='w') mypaddle.up = true;
