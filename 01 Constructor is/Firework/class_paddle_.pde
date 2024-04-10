@@ -4,9 +4,9 @@ class paddle {
   float netX, netY, netWidth, netHeight;
   float paddleX, paddleY, paddleWidth, paddleHeight,paddlestartheight;
   float Paddletraveldistance;
-  float hudX, hudW, hudH, hudy;
   color paddlecolor;
   color overlaycolor;
+  float HUDsquare,HUDY,hudW, hudH;
   boolean up=false, down=false;
   paddle (float paddleXparamater, float balld) {
     netWidth = balld * 3;
@@ -32,11 +32,13 @@ class paddle {
     overlaycolor = (#2e2e2e);
   }//end paddle
   
-  paddle(float Xpara) {
-    hudX = Xpara;
-    hudy = 0;
-    hudW = TABLEWIDTH;
-    hudH = TABLEHEIGHT;
+  paddle(float Ypara) {
+    HUDsquare = 0;
+    HUDY = Ypara;
+    hudW = displayWidth;
+    hudH = displayHeight;
+    
+    
   }
   
   void draw() {
