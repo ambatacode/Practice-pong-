@@ -1,5 +1,5 @@
 
-class ball
+class Ball
 {
   //global variables
   float X, Y, BALLD;
@@ -11,7 +11,7 @@ class ball
   // static int count =28; // statoc number for the amount of ball instances
   //
   //ball Constructor
-  ball () {
+  Ball () {
     //constructor is hard coded, single variable object
     //local variables, deleted at end of constructor
     int startX = displayWidth*1/2;
@@ -28,7 +28,7 @@ class ball
     this.Yspeedchange = 15;
   }//end ball constructor
   //
-  ball (float X, float Y, Float gravityParamiter) {
+  Ball (float X, float Y, Float gravityParamiter) {
     //ball();
     this.X = X; // trip error ball in goal
     this.Y = Y;
@@ -40,7 +40,7 @@ class ball
   }// end firework
   //
   // must look like ball
-  ball (int XPARA, int YPARA, float DIAPARA, float COLORPARA) {
+  Ball (int XPARA, int YPARA, float DIAPARA, float COLORPARA) {
     this.X = XPARA;
     this.Y = YPARA;
     this.BALLD = DIAPARA;
@@ -51,7 +51,7 @@ class ball
     this.Yspeedchange = 5;
   }//end cheat ball
   //
-  ball (int Xpara, int Ypara) {
+  Ball (int Xpara, int Ypara) {
     
   }// end coin
   //

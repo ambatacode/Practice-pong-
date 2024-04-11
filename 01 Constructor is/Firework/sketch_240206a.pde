@@ -5,35 +5,36 @@ boolean gamestart = false;
 boolean eventselector = false;
 float EVENTCHOOSER = 0;
 boolean up=false, down=false;
-ball pongBall;
-ball[] Fireworks = new ball[50];
-ball Cheatball;
-ball coin;
+Ball pongBall;
+Ball[] Fireworks = new Ball[50];
+Ball Cheatball;
+Ball coin;
 paddle mypaddle, savagepaddle;
-paddle topbox, bottombox;
+pongtable pongtable;
 //
 
 //
 void setup() {
   fullScreen();
   // ball variables
-  pongBall = new ball();
+  pongBall = new Ball();
   for (int i=0; i< Fireworks.length; i++) {
-    Fireworks[i] = new ball(displayWidth*-1, displayHeight*-1, 0.5);
+    Fireworks[i] = new Ball(displayWidth*-1, displayHeight*-1, 0.5);
   }
-  Cheatball = new ball(displayWidth*-1, displayHeight*-1, 0.0, 0.0);
-  topbox = new paddle(0);
+  Cheatball = new Ball(displayWidth*-1, displayHeight*-1, 0.0, 0.0);
+  pongtable = new pongtable();
 
   mypaddle = new paddle(0, pongBall.BALLD);
   savagepaddle =new paddle(displayWidth, pongBall.BALLD);
 }
 //garbage collection happens here
 void draw () {
-  background(#000000);
+  background(#FFFFFF);
+  pongtable.draw();
   hudrect();
   mypaddle.draw();
   savagepaddle.draw();
-  topbox.draw();
+  
   if (newgame == false)pongBall.draw();
   if (newgame == true) pongBall.X = displayWidth *1/2;
   if (newgame == true) pongBall.Y = displayHeight *1/2;
@@ -79,7 +80,7 @@ void mousePressed() {
     newgame = true;
   }
 
-  if (mousePressed && (mouseButton == LEFT))Cheatball = new ball(mouseX, mouseY, pongBall.BALLD, pongBall.Ballcolour);
+  if (mousePressed && (mouseButton == LEFT))Cheatball = new Ball(mouseX, mouseY, pongBall.BALLD, pongBall.Ballcolour);
 }
 //
 

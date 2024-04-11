@@ -6,7 +6,6 @@ class paddle {
   float Paddletraveldistance;
   color paddlecolor;
   color overlaycolor;
-  float HUDsquare,HUDY,hudW, hudH;
   boolean up=false, down=false;
   paddle (float paddleXparamater, float balld) {
     netWidth = balld * 3;
@@ -31,19 +30,10 @@ class paddle {
     paddlecolor = (#FFFFFF) ;
     overlaycolor = (#2e2e2e);
   }//end paddle
-  
-  paddle(float Ypara) {
-    HUDsquare = 0;
-    HUDY = Ypara;
-    hudW = displayWidth;
-    hudH = displayHeight;
-    
-    
-  }
+
   
   void draw() {
     paddles();
-    overlay();
 
   }
   void paddles() {
@@ -57,11 +47,7 @@ class paddle {
     this.movePaddledown();
   }
   }//end paddles
-  void overlay() {
-    fill(overlaycolor);
-    rect (hudX, hudy, hudW, hudH );
-    fill(0);
-  }
+  
   void wspress() {
   if (key =='W'| key=='w') mypaddle.up = true;
   if (key =='S'| key=='s')  mypaddle.down = true ;
@@ -72,15 +58,15 @@ class paddle {
 }
 void keypressedOL() {
   if (key =='O' | key=='o') savagepaddle.up = true;
-  if (key =='l' | key=='l') savagepaddle.down = true;
+  if (key =='L' | key=='l') savagepaddle.down = true;
 }
 void keypressedOLrel() {
   if (key =='O' | key=='o') savagepaddle.up = false;
-  if (key =='l' | key=='l') savagepaddle.down = false;
+  if (key =='L' | key=='l') savagepaddle.down = false;
 }
   void movePaddledown(){
     paddleY += Paddletraveldistance;
-    if(paddleY > TABLEY+TABLEHEIGHT-paddleHeight) paddleY = TABLEY+TABLEHEIGHT -paddleHeight;
+    if(paddleY > TABLEY+TABLEHEIGHT-paddleHeight) paddleY = TABLEY+TABLEHEIGHT - paddleHeight;
   }
   void movePaddleup(){
     paddleY -= Paddletraveldistance ;
