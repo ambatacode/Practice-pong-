@@ -31,6 +31,7 @@ void setup() {
 void draw () {
   background(#FFFFFF);
   pongtable.draw();
+  textdrw();
   hudrect();
   mypaddle.draw();
   savagepaddle.draw();
