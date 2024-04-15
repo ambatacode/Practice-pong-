@@ -1,7 +1,9 @@
-Pongtable pongtable;
+PongTable pongtablerect;
 
 void setup() {
+  pongtablerect = new PongTable(0,0,0,0,0);
   fullScreen();
-  pongtable = new Pongtable(0,0,0,0,0);
 }
-void draw(){}
+void draw(){
+  pongtablerect.draw();
+}

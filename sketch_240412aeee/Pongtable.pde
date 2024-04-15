@@ -1,17 +1,23 @@
-abstract class Pongtable extends Rect {
-  float PongtableX, PongtableY, PongtableW, PongtableH;
-  
-  Pongtable (float x, float y, float w, float h, color c) {
-    super (x, y, w, h, c);
-    this.x = x;
-    this.y = y;
-    this.w = w;
-    this.h = h;
-    this.c = (#000000);
-  }
-  void draw(){
+class PongTable extends Rectangle {
+  //Global Variables
+  //
+  PongTable (int x, int y, int w, int h, color c) {
+    super(x, y, w, h, c);
+    this.x = 0;
+    this.y = displayHeight * 1/10;
+    this.w = displayWidth;
+    this.h = displayHeight * 8/10;
+  } //End PongTable
+  //
+  //Methods
+  void draw() {
+    //Border: foreground v background, separation from table to buttons
+    //Background Colour: simple fill or toggle with nightMode
+    //println(c);
+    c = (#000000);
     fill(c);
-    rect(x, y, w, h);
-    fill (0);
-  }
-}
+    rect(x, y, w, h); //Pong Table
+    //fill(resetDefault);
+    //Reset the Defaults
+  } //End draw()
+} //End PongTable
