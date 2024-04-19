@@ -2,6 +2,7 @@ PongTable pongtablerect;
 Ball Playball;
 Lines Middle, LLeft, LRight;
 Net Left, Right;
+Paddle P1Paddle, P2Paddle;
 //
 void setup() {
   pongtablerect = new PongTable(0, 0, 0, 0, 0);
@@ -14,12 +15,32 @@ void setup() {
   LLeft = new Lines(Left.x, 0, 0, 0, 0);
   LRight = new Lines(Right.x, 0, 0, 0, 0);
   //
+  P1Paddle = new Paddle(LLeft.x, 0, 0, 0, 0);
+  P2Paddle = new Paddle(LRight.x, 0, 0, 0, 0);
   fullScreen();
 }
+//
 void draw() {
   pongtablerect.draw();
+  //
   Middle.draw();
-  Playball.draw();
   LLeft.draw();
   LRight.draw();
+  //
+  Playball.draw();
+  //
+  P1Paddle.draw();
+  P2Paddle.draw();
+}
+//
+void keyPressed(){
+  P1Paddle.BooleanPathP1();
+  P2Paddle.BooleanPathP2();
+}
+void keyReleased(){
+  P1Paddle.BooleanReleaseP1();
+  P2Paddle.BooleanReleaseP2();
+}
+//
+void mousePressed(){
 }
