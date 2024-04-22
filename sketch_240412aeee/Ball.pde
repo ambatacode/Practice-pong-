@@ -38,5 +38,7 @@ class Ball extends Circle{
   }
   void bounce(){
     if (y  < (pongtablerect.y)|| y > pongtablerect.y + pongtablerect.h - w) speedy *= -1;
+    if (x < P1Paddle.x + P1Paddle.w && y > P1Paddle.y && y < P1Paddle.y + P1Paddle.h && x > P1Paddle.x )speedx *= -1;
+    if (x > P2Paddle.x - BallRadius && y > P2Paddle.y && y < P2Paddle.y + P2Paddle.h && x < P2Paddle.x)speedx *= -1;
   }
 }
