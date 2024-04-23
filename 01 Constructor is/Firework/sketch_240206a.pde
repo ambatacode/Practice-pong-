@@ -6,7 +6,7 @@ boolean eventselector = false;
 float EVENTCHOOSER = 0;
 boolean up=false, down=false;
 Ball pongBall;
-Ball[] Fireworks = new Ball[50];
+Ball [] Fireworks = new Ball[50];
 Ball Cheatball;
 Ball coin;
 paddle mypaddle, savagepaddle;
