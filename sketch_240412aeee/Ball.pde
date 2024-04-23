@@ -13,7 +13,7 @@ class Ball extends Circle{
     this.h = BallRadius;
     this.speedx = Xdirection();
     this.speedy = Ydirection();
-    this.SpeedSwitch = 10;
+    this.SpeedSwitch = 12;
     this.c = c;
   }
   void draw(){

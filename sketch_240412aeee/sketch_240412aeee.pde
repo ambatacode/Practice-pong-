@@ -3,6 +3,7 @@ Ball Playball;
 Lines Middle, LLeft, LRight;
 Net Left, Right;
 Paddle P1Paddle, P2Paddle;
+Firework []firework = new Firework[50];
 //
 void setup() {
   pongtablerect = new PongTable(0, 0, 0, 0, 0);
@@ -17,6 +18,10 @@ void setup() {
   //
   P1Paddle = new Paddle(LLeft.x, 0, 0, 0, 0);
   P2Paddle = new Paddle(LRight.x, 0, 0, 0, 0);
+  //
+  for (int i=0; i< firework.length; i++) {
+    firework[i] = new Firework(displayWidth*-1, displayHeight*-1,0,0,0);
+  }
   fullScreen();
 }
 //
@@ -33,14 +38,14 @@ void draw() {
   P2Paddle.draw();
 }
 //
-void keyPressed(){
+void keyPressed() {
   P1Paddle.BooleanPathP1();
   P2Paddle.BooleanPathP2();
 }
-void keyReleased(){
+void keyReleased() {
   P1Paddle.BooleanReleaseP1();
   P2Paddle.BooleanReleaseP2();
 }
 //
-void mousePressed(){
+void mousePressed() {
 }
