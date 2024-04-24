@@ -19,7 +19,7 @@ void setup() {
   // ball variables
   pongBall = new Ball();
   for (int i=0; i< Fireworks.length; i++) {
-    Fireworks[i] = new Ball(displayWidth*-1, displayHeight*-1, 0.5);
+      Fireworks[i] = new Ball(displayWidth*-1, displayHeight*-1, 0.5);
   }
   Cheatball = new Ball(displayWidth*-1, displayHeight*-1, 0.0, 0.0);
   pongtable = new pongtable();
@@ -35,7 +35,7 @@ void draw () {
   hudrect();
   mypaddle.draw();
   savagepaddle.draw();
-  
+  Cheatball.draw();
   if (newgame == false)pongBall.draw();
   if (newgame == true) pongBall.X = displayWidth *1/2;
   if (newgame == true) pongBall.Y = displayHeight *1/2;
@@ -49,17 +49,13 @@ void draw () {
 
   if (pongBall.X < displayWidth*1/20 && pongBall.X > displayWidth*0.1/20||pongBall.X < displayWidth*20/20 && pongBall.X > displayWidth*19.7/20 ) {
     netexpo(pongBall.X, pongBall.Y);
-  }
-  Cheatball.draw();
+  } 
+  
   for (int i=0; i< Fireworks.length; i++) {
     Fireworks[i].draw();
   }
   if (Cheatball.X < displayWidth*1/20 && Cheatball.X > displayWidth*0.1/20||Cheatball.X < displayWidth*20/20 && Cheatball.X > displayWidth*19.7/20 ) {
     netexpo(Cheatball.X, Cheatball.Y);
-  }
-  Cheatball.draw();
-  for (int i=0; i< Fireworks.length; i++) {
-    Fireworks[i].draw();
   }
 }
 

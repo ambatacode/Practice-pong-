@@ -9,6 +9,10 @@ void setup() {
   pongtablerect = new PongTable(0, 0, 0, 0, 0);
   Playball = new Ball(0, 0, 0, 0, 0);
   //
+  for (int i=0; i< firework.length; i++) {
+    firework[i] = new Firework(displayWidth*-1, displayHeight*-1, 0, 0, 0);
+  }
+  //
   Left = new Net(0, 0, 0, 0, 0);
   Right = new Net(displayWidth, 0, 0, 0, 0);
   //
@@ -19,9 +23,6 @@ void setup() {
   P1Paddle = new Paddle(LLeft.x, 0, 0, 0, 0);
   P2Paddle = new Paddle(LRight.x, 0, 0, 0, 0);
   //
-  for (int i=0; i< firework.length; i++) {
-    firework[i] = new Firework(displayWidth*-1, displayHeight*-1,0,0,0);
-  }
   fullScreen();
 }
 //
@@ -36,6 +37,13 @@ void draw() {
   //
   P1Paddle.draw();
   P2Paddle.draw();
+  //
+  if (Playball.x < LLeft.x && Playball.x > 0) {
+    netExplosion(Playball.x, Playball.y);
+  }
+  for (int i=0; i< firework.length; i++) {
+    firework[i].draw();
+  }
 }
 //
 void keyPressed() {

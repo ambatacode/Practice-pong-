@@ -1,17 +1,19 @@
 class Firework extends Circle {
+  int RandomShape;
   Firework(int x, int y, int w, int h, color c) {
     super(x, y, w, h, c);
-    speedx = Xdirection();
-    speedy = Ydirection();
+    RandomShape = int (random(displayWidth*1/30));
+    speedx = random(-5, 5);
+    speedy = random(-5, 5);
     this.x = x ;
     this.y = y ;
-    this.w = int (random(1, 5));
-    this.h = int (random(1, 5));
+    this.w = RandomShape ;
+    this.h = RandomShape;
     this.c = c;
   }
   void draw() {
-    c = (#FFFFFF);
-    fill(c);
+    
+    fill(#FFFFFF);
     rect(x, y, w, h);
     fill(0);
     move();
