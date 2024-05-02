@@ -7,7 +7,7 @@ class Ball extends Circle{
   Ball(int x, int y, int w, int h, color c){
     super(x, y, w, h, c);
     BallRadius = displayHeight * 1/20;
-    this.x = pongtablerect.w * 1/2 - BallRadius * 1/2;
+    this.x = tableW * 1/2 - BallRadius * 1/2;
     this.y = (pongtablerect.y) + (pongtablerect.h * 1/2) - (BallRadius * 1/2) ;
     this.w = BallRadius;
     this.h = BallRadius;
@@ -28,6 +28,11 @@ class Ball extends Circle{
     if (SpeedEGG == true){
       this. SpeedSwitch = 30;
     }
+  }
+  int tableW;
+  void tableigger(int tabW) {
+    tableW = tabW;
+    
   }
   
   void move(){

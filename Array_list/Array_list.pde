@@ -16,11 +16,11 @@ Scoreboard Leftscoreboard, Rightscoreboard;
 ArrayList<Shape> shapes = new ArrayList<Shape>();
 //
 void setup() {
+  PongTable pongtablerect = new PongTable (0, 0, 0, 0, 0);
   
-  pongtablerect = new PongTable(0, 0, 0, 0, 0);
+  Ball Playball = new Ball(0, 0, 0, 0, 0);
+  Playball.tableigger(pongtablerect.w);
   /*
-  Playball = new Ball(0, 0, 0, 0, 0);
-  //
   for (int i=0; i< firework.length; i++) {
     firework[i] = new Firework(displayWidth*-1, displayHeight*-1, 0, 0, 0);
   }
@@ -38,13 +38,16 @@ void setup() {
   P1Paddle = new Paddle(LLeft.x, 0, 0, 0, 0);
   P2Paddle = new Paddle(LRight.x, 0, 0, 0, 0);
   */
+  shapes.add(pongtablerect);
+  shapes.add(Playball);
   //
   fullScreen();
 }
 //
 void draw() {
-  
-  pongtablerect.draw();
+  for (Shape s : shapes){
+    s.draw();
+  }
   /*
   //
   Leftscoreboard.draw();
