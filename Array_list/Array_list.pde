@@ -19,7 +19,7 @@ void setup() {
   PongTable pongtablerect = new PongTable (0, 0, 0, 0, 0);
   
   Ball Playball = new Ball(0, 0, 0, 0, 0);
-  Playball.tableigger(pongtablerect.w);
+  Playball.updateball(pongtablerect.w,pongtablerect.h,pongtablerect.y, P1Paddle.x, P1Paddle.y,P1Paddle.w,P1Paddle.h, P2Paddle.x, P2Paddle.y,P2Paddle.w,P2Paddle.h);
   /*
   for (int i=0; i< firework.length; i++) {
     firework[i] = new Firework(displayWidth*-1, displayHeight*-1, 0, 0, 0);
