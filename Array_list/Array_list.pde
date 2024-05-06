@@ -20,18 +20,24 @@ void setup() {
   
   Ball Playball = new Ball(0, 0, 0, 0, 0);
   Playball.updateball(pongtablerect.w,pongtablerect.h,pongtablerect.y, P1Paddle.x, P1Paddle.y,P1Paddle.w,P1Paddle.h, P2Paddle.x, P2Paddle.y,P2Paddle.w,P2Paddle.h);
-  /*
+  
   for (int i=0; i< firework.length; i++) {
     firework[i] = new Firework(displayWidth*-1, displayHeight*-1, 0, 0, 0);
   }
   //
-  Left = new Net(0, 0, 0, 0, 0);
-  Right = new Net(displayWidth, 0, 0, 0, 0);
+  Net Left = new Net(0, 0, 0, 0, 0);
+  Left.UpdateNets(pongtablerect.h,pongtablerect.y);
+  Net Right = new Net(displayWidth, 0, 0, 0, 0);
+  Right.UpdateNets(pongtablerect.h,pongtablerect.y);
   //
-  Middle = new Lines(displayWidth*1/2, 0, 0, 0, 0);
-  LLeft = new Lines(Left.x, 0, 0, 0, 0);
-  LRight = new Lines(Right.x, 0, 0, 0, 0);
+  
+  Lines Middle = new Lines(displayWidth*1/2, 0, 0, 0, 0);
+  
+  Lines LLeft = new Lines(Left.x, 0, 0, 0, 0);
+  
+  Lines LRight = new Lines(Right.x, 0, 0, 0, 0);
   //
+  /*
   Leftscoreboard = new Scoreboard(LLeft.x, 0, 0, 0, 0);
   Rightscoreboard = new Scoreboard(Right.x, 0, 0, 0, 0);
   //

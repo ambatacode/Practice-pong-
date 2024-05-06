@@ -26,4 +26,9 @@ class Net extends Rectangle {
     rect(x, y, w, h);
     fill(0);
   }
+  int TableH, TableY ;
+  void UpdateNets(int TH, int TY) {
+    TableH = TH;
+    TableY = TY;
+  }
 }

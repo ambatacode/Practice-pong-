@@ -1,4 +1,4 @@
-class Firework extends Circle {
+  class Firework extends Circle {
   int RandomShape;
   Firework(int x, int y, int w, int h, color c) {
     super(x, y, w, h, c);

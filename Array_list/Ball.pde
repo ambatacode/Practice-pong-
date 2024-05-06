@@ -29,7 +29,20 @@ class Ball extends Circle {
       this. SpeedSwitch = 30;
     }
   }
-  int TableW, TableH, TableX, TableY;
+
+
+  void move() {
+    speedegg();
+    bounce();
+    x += speedx * SpeedSwitch;
+    y += speedy * SpeedSwitch;
+  }
+  void bounce() {
+    if (y  < (TableY)|| y > TableY + TableH - w) speedy *= -1;
+    if (x < PaddleX1 + PaddleW1 && y > PaddleY1 && y < PaddleY1 + PaddleH1 && x > PaddleX1 )speedx *= -1;
+    if (x > PaddleX2 - BallRadius && y > PaddleY2 && y < PaddleY2 + PaddleW2 && x < PaddleX2)speedx *= -1;
+  }
+    int TableW, TableH, TableX, TableY;
   int PaddleX1, PaddleY1, PaddleW1, PaddleH1;
   int PaddleX2, PaddleY2, PaddleW2, PaddleH2;
   void updateball(int TW, int TH, int TY, int PX1, int PY1, int PW1, int PH1, int PX2, int PY2, int PW2, int PH2 ) {
@@ -46,17 +59,5 @@ class Ball extends Circle {
     PaddleY2 = PY2 ;
     PaddleW2 = PW2 ;
     PaddleH2 = PH2 ;
-  }
-
-  void move() {
-    speedegg();
-    bounce();
-    x += speedx * SpeedSwitch;
-    y += speedy * SpeedSwitch;
-  }
-  void bounce() {
-    if (y  < (TableY)|| y > TableY + TableH - w) speedy *= -1;
-    if (x < PaddleX1 + PaddleW1 && y > PaddleY1 && y < PaddleY1 + PaddleH1 && x > PaddleX1 )speedx *= -1;
-    if (x > PaddleX2 - BallRadius && y > PaddleY2 && y < PaddleY2 + PaddleW2 && x < PaddleX2)speedx *= -1;
   }
 }
