@@ -7,16 +7,16 @@ class Net extends Rectangle {
     this.NetWidth = displayWidth * 1/25;
     if (x == 0) {
       this.x = x;
-      this.y = pongtablerect.y;
+      this.y = TableY;
       this.w = NetWidth;
-      this.h = pongtablerect.h;
+      this.h = TableH;
       this.c = c;
     }
     if (x == displayWidth) {
       this.x = x - NetWidth ;
-      this.y = pongtablerect.y;
+      this.y = TableY;
       this.w = NetWidth;
-      this.h = pongtablerect.h;
+      this.h = TableH;
       this.c = c;
     }
   }
