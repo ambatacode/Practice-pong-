@@ -11,15 +11,15 @@ class Paddle extends Rectangle {
     paddleHeight = TableH * 1/4;
     PaddleWidth = (displayHeight * 1/20) * 1/3;
     paddleTravel = 10;
-    if (x == LLeftX) {
-      this.x = x;
+    if (x == 0) {
+      this.x = LLeftX;
       this.y = (TableY) + (TableH * 1/2) - (paddleHeight * 1/2) ;
       this.w = PaddleWidth;
       this.h = paddleHeight;
       this.c = c;
     }
-    if (x == LRightX) {
-      this.x = x - PaddleWidth ;
+    if (x == 1) {
+      this.x = LRightX - PaddleWidth ;
       this.y = (TableY) + (TableH * 1/2) - (paddleHeight * 1/2) ;
       this.w = PaddleWidth;
       this.h = paddleHeight;

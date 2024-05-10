@@ -10,15 +10,15 @@ class Lines extends Rectangle {
       this.h = TableH;
       this.c = c;
     }
-    if (x == LeftX) {
-      this.x = x + LeftW;
+    if (x == 0) {
+      this.x = LeftX + LeftW;
       this.y = TableY;
       this.w = 3;
       this.h = TableH;
       this.c = c;
     }
-    if (x ==RightX) {
-      this.x = x;
+    if (x == 1) {
+      this.x = RightX;
       this.y = TableY;
       this.w = 3;
       this.h = TableH;

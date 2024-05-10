@@ -4,19 +4,18 @@ class Net extends Rectangle {
   //
   Net(int x, int y, int w, int h, color c) {
     super(x, y, w, h, c);
-    this.NetWidth = displayWidth * 1/25;
     if (x == 0) {
       this.x = x;
-      this.y = TableY;
-      this.w = NetWidth;
-      this.h = TableH;
+      this.y = displayHeight * 1/10;
+      this.w = displayWidth * 1/25;
+      this.h = displayHeight * 8/10;
       this.c = c;
     }
-    if (x == displayWidth) {
-      this.x = x - NetWidth ;
-      this.y = TableY;
-      this.w = NetWidth;
-      this.h = TableH;
+    if (x == 1) {
+      this.x = displayWidth - displayWidth * 1/25;
+      this.y = displayHeight * 1/10;
+      this.w = displayWidth * 1/25;
+      this.h = displayHeight * 8/10;
       this.c = c;
     }
   }
