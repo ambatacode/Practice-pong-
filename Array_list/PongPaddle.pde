@@ -8,18 +8,18 @@ class Paddle extends Rectangle {
   //
   Paddle(int x, int y, int w, int h, color c) {
     super(x, y, w, h, c);
-    paddleHeight = TableH * 1/4;
+    paddleHeight = displayHeight * 8/10 * 1/4;
     PaddleWidth = (displayHeight * 1/20) * 1/3;
     paddleTravel = 10;
     if (x == 0) {
-      this.x = LLeftX;
+      this.x = x + LLeftX;
       this.y = (TableY) + (TableH * 1/2) - (paddleHeight * 1/2) ;
       this.w = PaddleWidth;
       this.h = paddleHeight;
       this.c = c;
     }
     if (x == 1) {
-      this.x = LRightX - PaddleWidth ;
+      this.x = (LRightX) - PaddleWidth ;
       this.y = (TableY) + (TableH * 1/2) - (paddleHeight * 1/2) ;
       this.w = PaddleWidth;
       this.h = paddleHeight;
@@ -61,11 +61,11 @@ class Paddle extends Rectangle {
   //
   void moveup() {
     y -= paddleTravel;
-    if (y < TableY) y = TableY;
+    if (y < displayHeight * 1/10) y = TableY;
   }
   void movedown() {
     y += paddleTravel;
-    if (y > TableY + TableH - paddleHeight) y = TableY + TableH - paddleHeight;
+    if (y > displayHeight * 1/10 + displayHeight * 8/10 - paddleHeight) y = displayHeight * 1/10 + displayHeight * 8/10 - paddleHeight;
   }
   int TableX,TableY,TableW,TableH;
   int LLeftX, LRightX;

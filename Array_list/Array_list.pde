@@ -26,10 +26,12 @@ void setup() {
   //
   Net Left = new Net(0, 0, 0, 0, 0);
   Left.UpdateNets(pongtablerect.h, pongtablerect.y);
+  Left.Netintitialize();
   shapes.add(Left);
   //
   Net Right = new Net(1, 0, 0, 0, 0);
   Right.UpdateNets(pongtablerect.h, pongtablerect.y);
+  Right.Netintitialize();
   shapes.add(Right);
   //
   Lines Middle = new Lines(displayWidth*1/2, 0, 0, 0, 0);
@@ -51,6 +53,7 @@ void setup() {
   //
   Ball Playball = new Ball(0, 0, 0, 0, 0);
   Playball.updateball(pongtablerect.w, pongtablerect.h, pongtablerect.y, P1Paddle.x, P1Paddle.y, P1Paddle.w, P1Paddle.h, P2Paddle.x, P2Paddle.y, P2Paddle.w, P2Paddle.h);
+  Playball.initialize();
   //
 
 

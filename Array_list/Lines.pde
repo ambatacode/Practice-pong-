@@ -5,23 +5,23 @@ class Lines extends Rectangle {
     super(x, y, w, h, c);
     if (x == displayWidth*1/2) {
       this.x = x;
-      this.y = TableY;
+      this.y = displayHeight * 1/10;
       this.w = 3;
-      this.h = TableH;
+      this.h = displayHeight * 8/10;
       this.c = c;
     }
     if (x == 0) {
-      this.x = LeftX + LeftW;
-      this.y = TableY;
+      this.x = 0 + displayWidth * 1/25;
+      this.y = displayHeight * 1/10;
       this.w = 3;
-      this.h = TableH;
+      this.h = displayHeight * 8/10;
       this.c = c;
     }
     if (x == 1) {
-      this.x = RightX;
-      this.y = TableY;
+      this.x = displayWidth - displayWidth * 1/25;
+      this.y = displayHeight * 1/10;
       this.w = 3;
-      this.h = TableH;
+      this.h = displayHeight * 8/10;
       this.c = c;
     }
   }

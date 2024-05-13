@@ -6,15 +6,6 @@ class Ball extends Circle {
   //
   Ball(int x, int y, int w, int h, color c) {
     super(x, y, w, h, c);
-    BallRadius = displayHeight * 1/20;
-    this.x = TableW * 1/2 - BallRadius * 1/2;
-    this.y = (TableY) + (TableH * 1/2) - (BallRadius * 1/2) ;
-    this.w = BallRadius;
-    this.h = BallRadius;
-    this.speedx = Xdirection();
-    this.speedy = Ydirection();
-    this.SpeedSwitch = 12;
-    this.c = c;
   }
   void draw() {
     c = (#FFFFFF);
@@ -30,7 +21,18 @@ class Ball extends Circle {
     }
   }
 
-
+  void initialize() {
+    BallRadius = displayHeight * 1/20;
+    this.x = TableW * 1/2 - BallRadius * 1/2;
+    this.y = (TableY) + (TableH * 1/2) - (BallRadius * 1/2) ;
+    this.w = BallRadius;
+    this.h = BallRadius;
+    this.speedx = Xdirection();
+    this.speedy = Ydirection();
+    this.SpeedSwitch = 12;
+    this.c = c;
+  }
+  //
   void move() {
     speedegg();
     bounce();
