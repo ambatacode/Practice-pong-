@@ -22,7 +22,7 @@ class Ball extends Circle {
   }
 
   void initialize() {
-    BallRadius = displayHeight * 1/20;
+    BallRadius = displayHeight * 1/25;
     this.x = TableW * 1/2 - BallRadius * 1/2;
     this.y = (TableY) + (TableH * 1/2) - (BallRadius * 1/2) ;
     this.w = BallRadius;

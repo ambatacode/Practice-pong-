@@ -16,7 +16,6 @@ Scoreboard Leftscoreboard, Rightscoreboard;
 ArrayList<Shape> shapes = new ArrayList<Shape>();
 //
 void setup() {
-  background(#1c1c1c);
   PongTable pongtablerect = new PongTable (0, 0, 0, 0, 0);
   shapes.add(pongtablerect);
   //
@@ -36,20 +35,26 @@ void setup() {
   //
   Lines Middle = new Lines(displayWidth*1/2, 0, 0, 0, 0);
   Middle.UpdateLines(pongtablerect.h, pongtablerect.y, Left.w, Left.x, Right.x);
+  Middle.LinesInitialize();
   //
   Lines LLeft = new Lines(0, 0, 0, 0, 0);
   LLeft.UpdateLines(pongtablerect.h, pongtablerect.y, Left.w, Left.x, Right.x);
+  LLeft.LinesInitialize();
   //
   Lines LRight = new Lines(1, 0, 0, 0, 0);
   LRight.UpdateLines(pongtablerect.h, pongtablerect.y, Left.w, Left.x, Right.x);
+  LRight.LinesInitialize();
   //
   //Leftscoreboard = new Scoreboard(LLeft.x, 0, 0, 0, 0);
   //Rightscoreboard = new Scoreboard(Right.x, 0, 0, 0, 0);
   //
   Paddle P1Paddle = new Paddle(0, 0, 0, 0, 0);
   P1Paddle.UpdatePaddle(pongtablerect.x, pongtablerect.y, pongtablerect.w, pongtablerect.h, LLeft.x, LRight.x);
+  P1Paddle.initializePaddle();
+  //
   Paddle P2Paddle = new Paddle(1, 0, 0, 0, 0);
   P2Paddle.UpdatePaddle(pongtablerect.x, pongtablerect.y, pongtablerect.w, pongtablerect.h, LLeft.x, LRight.x);
+  P2Paddle.initializePaddle();
   //
   Ball Playball = new Ball(0, 0, 0, 0, 0);
   Playball.updateball(pongtablerect.w, pongtablerect.h, pongtablerect.y, P1Paddle.x, P1Paddle.y, P1Paddle.w, P1Paddle.h, P2Paddle.x, P2Paddle.y, P2Paddle.w, P2Paddle.h);
@@ -69,6 +74,7 @@ void setup() {
 }
 //
 void draw() {
+   background(#1c1c1c);
   for (Shape s : shapes) {
     s.draw();
   }
