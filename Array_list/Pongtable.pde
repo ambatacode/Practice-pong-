@@ -3,10 +3,6 @@ class PongTable extends Rectangle {
   //
   PongTable (int x, int y, int w, int h, color c) {
     super(x, y, w, h, c);
-    this.x = 0;
-    this.y = displayHeight * 1/10;
-    this.w = displayWidth;
-    this.h = displayHeight * 8/10;
   } //End PongTable
   //
   //Methods
@@ -20,4 +16,10 @@ class PongTable extends Rectangle {
     //fill(resetDefault);
     //Reset the Defaults
   } //End draw()
+  void initializetable() {
+    this.x = 0;
+    this.y = displayHeight * 1/10;
+    this.w = displayWidth;
+    this.h = displayHeight * 8/10;
+  }
 } //End PongTable

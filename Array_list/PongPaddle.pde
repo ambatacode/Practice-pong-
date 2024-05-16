@@ -8,9 +8,6 @@ class Paddle extends Rectangle {
   //
   Paddle(int x, int y, int w, int h, color c) {
     super(x, y, w, h, c);
-    paddleHeight = displayHeight * 8/10 * 1/4;
-    PaddleWidth = (displayHeight * 1/20) * 1/3;
-    paddleTravel = 10;
   }
 
   void draw() {
@@ -65,6 +62,9 @@ class Paddle extends Rectangle {
     LRightX = LRX;
   }
   void initializePaddle() {
+    paddleHeight = displayHeight * 8/10 * 1/4;
+    PaddleWidth = (displayHeight * 1/20) * 1/3;
+    paddleTravel = 10;
     if (x == 0) {
       this.x = x + LLeftX;
       this.y = (TableY) + (TableH * 1/2) - (paddleHeight * 1/2) ;

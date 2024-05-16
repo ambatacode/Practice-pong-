@@ -5,19 +5,17 @@ import ddf.minim.signals.*;
 import ddf.minim.spi.*;
 import ddf.minim.ugens.*;
 
-PongTable pongtablerect;
-Ball Playball, Cheatball;
-Lines Middle, LLeft, LRight;
-Net Left, Right;
+
 Paddle P1Paddle, P2Paddle;
 Firework []firework = new Firework[50];
-Scoreboard Leftscoreboard, Rightscoreboard;
+
 
 ArrayList<Shape> shapes = new ArrayList<Shape>();
 //
 void setup() {
   PongTable pongtablerect = new PongTable (0, 0, 0, 0, 0);
   shapes.add(pongtablerect);
+  pongtablerect.initializetable();
   //
   for (int i=0; i< firework.length; i++) {
     firework[i] = new Firework(displayWidth*-1, displayHeight*-1, 0, 0, 0);
@@ -60,7 +58,13 @@ void setup() {
   Playball.updateball(pongtablerect.w, pongtablerect.h, pongtablerect.y, P1Paddle.x, P1Paddle.y, P1Paddle.w, P1Paddle.h, P2Paddle.x, P2Paddle.y, P2Paddle.w, P2Paddle.h);
   Playball.initialize();
   //
-
+  Scoreboard Leftscoreboard = new Scoreboard(0, 0, 0, 0, 0);
+  Leftscoreboard.updateSB(pongtablerect.y, pongtablerect.h, LLeft.x, LRight.x);
+  Leftscoreboard.initializescore();
+  //
+  Scoreboard Rightscoreboard = new Scoreboard(1, 0, 0, 0, 0);
+  Rightscoreboard.updateSB(pongtablerect.y, pongtablerect.h, LLeft.x, LRight.x);
+  Leftscoreboard.initializescore();
 
   shapes.add(Middle);
   shapes.add(LLeft);
@@ -74,7 +78,7 @@ void setup() {
 }
 //
 void draw() {
-   background(#1c1c1c);
+  background(#1c1c1c);
   for (Shape s : shapes) {
     s.draw();
   }
