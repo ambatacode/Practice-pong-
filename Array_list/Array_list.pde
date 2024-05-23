@@ -8,8 +8,6 @@ import ddf.minim.ugens.*;
 
 Paddle P1Paddle, P2Paddle;
 Firework []firework = new Firework[50];
-
-
 ArrayList<Shape> shapes = new ArrayList<Shape>();
 //
 void setup() {
@@ -49,6 +47,7 @@ void setup() {
   Paddle P1Paddle = new Paddle(0, 0, 0, 0, 0);
   P1Paddle.UpdatePaddle(pongtablerect.x, pongtablerect.y, pongtablerect.w, pongtablerect.h, LLeft.x, LRight.x);
   P1Paddle.initializePaddle();
+  
   //
   Paddle P2Paddle = new Paddle(1, 0, 0, 0, 0);
   P2Paddle.UpdatePaddle(pongtablerect.x, pongtablerect.y, pongtablerect.w, pongtablerect.h, LLeft.x, LRight.x);
@@ -107,12 +106,11 @@ void draw() {
 }
 //
 void keyPressed() {
-  //P1Paddle.BooleanPathP1();
-  //P2Paddle.BooleanPathP2();
 }
 void keyReleased() {
-  //P1Paddle.BooleanReleaseP1();
-  //P2Paddle.BooleanReleaseP2();
+  for (Shape s : shapes) {
+    s.keyReleased();
+  }
 }
 //
 void mousePressed() {

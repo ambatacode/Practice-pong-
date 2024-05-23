@@ -17,4 +17,6 @@ abstract class Shape {
   //
   //Methods
   abstract void draw(); //Empty draw()
+  abstract void keyPressed();
+  abstract void keyReleased();
 } //End Shape

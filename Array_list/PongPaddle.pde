@@ -22,26 +22,14 @@ class Paddle extends Rectangle {
       movedown();
     }
   }
-  //
-  void BooleanPathP1() {
-    if (key =='W'| key=='w') P1Paddle.up = true;
-    if (key =='S'| key=='s') P1Paddle.down = true;
+
+  void keypressed() {
+    if (){
+    }
   }
-  void BooleanReleaseP1() {
-    if (key =='W'| key=='w') P1Paddle.up = false;
-    if (key =='S'| key=='s') P1Paddle.down = false;
+  void keyreleased() {
+    
   }
-  //
-  //
-  void BooleanPathP2() {
-    if (key =='O'| key=='o') P2Paddle.up = true;
-    if (key =='L'| key=='l') P2Paddle.down = true;
-  }
-  void BooleanReleaseP2() {
-    if (key =='O'| key=='o') P2Paddle.up = false;
-    if (key =='L'| key=='l') P2Paddle.down = false;
-  }
-  //
   void moveup() {
     y -= paddleTravel;
     if (y < displayHeight * 1/10) y = TableY;
