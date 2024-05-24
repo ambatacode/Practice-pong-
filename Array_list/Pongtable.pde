@@ -22,4 +22,8 @@ class PongTable extends Rectangle {
     this.w = displayWidth;
     this.h = displayHeight * 8/10;
   }
+  void keypressed() {
+  }
+  void keyreleased() {
+  }
 } //End PongTable

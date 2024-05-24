@@ -33,4 +33,8 @@ class Scoreboard extends Display {
       this.c = c;
     }
   }
+    void keypressed() {
+  }
+  void keyreleased() {
+  }
 }

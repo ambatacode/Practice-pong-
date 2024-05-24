@@ -44,4 +44,8 @@ class Lines extends Rectangle {
       this.c = c;
     }
   }
+  void keypressed() {
+  }
+  void keyreleased() {
+  }
 }

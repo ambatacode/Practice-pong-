@@ -1,4 +1,4 @@
-  class Firework extends Circle {
+class Firework extends Circle {
   int RandomShape;
   Firework(int x, int y, int w, int h, color c) {
     super(x, y, w, h, c);
@@ -12,7 +12,7 @@
     this.c = c;
   }
   void draw() {
-    
+
     fill(#FFFFFF);
     rect(x, y, w, h);
     fill(0);
@@ -21,5 +21,9 @@
   void move() {
     x += speedx ;
     y += speedy ;
+  }
+  void keypressed() {
+  }
+  void keyreleased() {
   }
 }

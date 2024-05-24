@@ -62,4 +62,6 @@ class Ball extends Circle {
     PaddleW2 = PW2 ;
     PaddleH2 = PH2 ;
   }
+  void keypressed(){}
+  void keyreleased(){}
 }

@@ -4,7 +4,6 @@ class Net extends Rectangle {
   //
   Net(int x, int y, int w, int h, color c) {
     super(x, y, w, h, c);
-
   }
   void draw() {
     c = (#FFFFFF);
@@ -17,8 +16,8 @@ class Net extends Rectangle {
     TableH = TH;
     TableY = TY;
   }
-  void Netintitialize(){
-        if (x == 0) {
+  void Netintitialize() {
+    if (x == 0) {
       this.x = x;
       this.y = TableY;
       this.w = displayWidth * 1/25;
@@ -32,5 +31,9 @@ class Net extends Rectangle {
       this.h = TableH;
       this.c = c;
     }
+  }
+  void keypressed() {
+  }
+  void keyreleased() {
   }
 }

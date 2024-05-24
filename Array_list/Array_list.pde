@@ -47,7 +47,6 @@ void setup() {
   Paddle P1Paddle = new Paddle(0, 0, 0, 0, 0);
   P1Paddle.UpdatePaddle(pongtablerect.x, pongtablerect.y, pongtablerect.w, pongtablerect.h, LLeft.x, LRight.x);
   P1Paddle.initializePaddle();
-  
   //
   Paddle P2Paddle = new Paddle(1, 0, 0, 0, 0);
   P2Paddle.UpdatePaddle(pongtablerect.x, pongtablerect.y, pongtablerect.w, pongtablerect.h, LLeft.x, LRight.x);
@@ -81,35 +80,16 @@ void draw() {
   for (Shape s : shapes) {
     s.draw();
   }
-  /*
-  //
-   Leftscoreboard.draw();
-   Rightscoreboard.draw();
-   //shapes.add(pongtablerect);
-   Middle.draw();
-   LLeft.draw();
-   LRight.draw();
-   //
-   Playball.draw();
-   //
-   P1Paddle.draw();
-   P2Paddle.draw();
-   //
-   if (Playball.x < LLeft.x && Playball.x > 0) {
-   netExplosion(Playball.x, Playball.y);
-   }
-   for (int i=0; i< firework.length; i++) {
-   firework[i].draw();
-   }
-   */
-  //
 }
 //
 void keyPressed() {
+  for (Shape s : shapes) {
+    s.keypressed();
+  }
 }
 void keyReleased() {
   for (Shape s : shapes) {
-    s.keyReleased();
+    s.keyreleased();
   }
 }
 //

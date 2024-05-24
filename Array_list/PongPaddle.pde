@@ -15,20 +15,17 @@ class Paddle extends Rectangle {
     fill(c);
     rect(x, y, w, h);
     fill(0);
+    println(up);
+    println(down);
+    move();
+  }
+  void move() {
     if (up == true) {
       moveup();
     }
     if (down == true) {
       movedown();
     }
-  }
-
-  void keypressed() {
-    if (){
-    }
-  }
-  void keyreleased() {
-    
   }
   void moveup() {
     y -= paddleTravel;
@@ -66,6 +63,41 @@ class Paddle extends Rectangle {
       this.w = PaddleWidth;
       this.h = paddleHeight;
       this.c = c;
+    }
+  }
+  void keypressed() {
+    if (x == 0) {
+      if (key =='W'| key=='w') {
+        this.up = true;
+      }
+      if (key =='S'| key=='s') {
+        this.down = true;
+      }
+    } else {
+      if (key =='O'| key=='o') {
+        this.up = true;
+      }
+      if (key =='L'| key=='l') {
+        this.down = true;
+      }
+    }
+  }
+  void keyreleased() {
+    if (x == 0) {
+      if (key =='W'| key=='w') {
+        this.up = false;
+      }
+      if (key =='S'| key=='s') {
+        this.down = false;
+      }
+    }
+    else {
+      if (key =='O'| key=='o') {
+        this.up = false;
+      }
+      if (key =='L'| key=='l') {
+        this.down = false;
+      }
     }
   }
 }
