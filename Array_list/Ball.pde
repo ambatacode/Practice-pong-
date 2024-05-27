@@ -42,7 +42,7 @@ class Ball extends Circle {
   void bounce() {
     if (y  < (TableY)|| y > TableY + TableH - w) speedy *= -1;
     if (x < PaddleX1 + PaddleW1 && y > PaddleY1 && y < PaddleY1 + PaddleH1 && x > PaddleX1 )speedx *= -1;
-    if (x > PaddleX2 - BallRadius && y > PaddleY2 && y < PaddleY2 + PaddleW2 && x < PaddleX2)speedx *= -1;
+    if (x > PaddleX2 - BallRadius )speedx *= -1;
   }
   int TableW, TableH, TableX, TableY;
   int PaddleX1, PaddleY1, PaddleW1, PaddleH1;
