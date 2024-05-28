@@ -6,6 +6,8 @@ class Scoreboard extends Display {
     c = (#FFFFFF);
     fill(c);
     rect(x, y, w, h);
+    if (x == 0){ Alexander("0`");}
+    if (x == 1){ mongel("0`");}
     fill(0);
   }
   void text() {
@@ -23,18 +25,24 @@ class Scoreboard extends Display {
       this.y = TableY;
       this.w = displayWidth* 3/7;
       this.h = tableH;
-      this.c = c;
+      this.c = 0;
     }
     if (x == 1) {
       this.x = LineRX - w;
       this.y = TableY;
       this.w = displayWidth* 3/7;
       this.h = tableH;
-      this.c = c;
+      this.c = 0;
     }
   }
     void keypressed() {
   }
   void keyreleased() {
+  }
+  void Alexander(String Leftscore){
+    drawText( height, ink, CENTER, CENTER, Font, textSpace+Leftscore+textSpace, x, y, w, h);
+  }
+  void mongel(String Rightscore) {
+    drawText( height, ink, CENTER, CENTER, Font, textSpace+Rightscore+textSpace, x, y, w, h);
   }
 }

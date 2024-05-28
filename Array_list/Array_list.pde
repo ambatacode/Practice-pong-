@@ -11,6 +11,7 @@ Firework []firework = new Firework[50];
 ArrayList<Shape> shapes = new ArrayList<Shape>();
 //
 void setup() {
+  setupText();
   PongTable pongtablerect = new PongTable (0, 0, 0, 0, 0);
   shapes.add(pongtablerect);
   pongtablerect.initializetable();
@@ -41,9 +42,6 @@ void setup() {
   LRight.UpdateLines(pongtablerect.h, pongtablerect.y, Left.w, Left.x, Right.x);
   LRight.LinesInitialize();
   //
-  //Leftscoreboard = new Scoreboard(LLeft.x, 0, 0, 0, 0);
-  //Rightscoreboard = new Scoreboard(Right.x, 0, 0, 0, 0);
-  //
   Paddle P1Paddle = new Paddle(0, 0, 0, 0, 0);
   P1Paddle.UpdatePaddle(pongtablerect.x, pongtablerect.y, pongtablerect.w, pongtablerect.h, LLeft.x, LRight.x);
   P1Paddle.initializePaddle();
@@ -62,7 +60,7 @@ void setup() {
   //
   Scoreboard Rightscoreboard = new Scoreboard(1, 0, 0, 0, 0);
   Rightscoreboard.updateSB(pongtablerect.y, pongtablerect.h, LLeft.x, LRight.x);
-  Leftscoreboard.initializescore();
+  Rightscoreboard.initializescore();
 
   shapes.add(Middle);
   shapes.add(LLeft);
@@ -70,6 +68,8 @@ void setup() {
   shapes.add(P1Paddle);
   shapes.add(P2Paddle);
   shapes.add(Playball);
+  //shapes.add(Leftscoreboard);
+  shapes.add(Rightscoreboard);
 
   //
   fullScreen();
