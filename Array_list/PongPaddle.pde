@@ -15,10 +15,9 @@ class Paddle extends Rectangle {
     fill(c);
     rect(x, y, w, h);
     fill(0);
-    println(up);
-    println(down);
     move();
   }
+  void updateVariables(int TW, int TH, int TY, int PX1, int PY1, int PW1, int PH1, int PX2, int PY2, int PW2, int PH2 ) {}//end updateVariables
   void move() {
     if (up == true) {
       moveup();

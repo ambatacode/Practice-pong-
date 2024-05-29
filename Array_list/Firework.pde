@@ -18,6 +18,7 @@ class Firework extends Circle {
     fill(0);
     move();
   }
+  void updateVariables(int TW, int TH, int TY, int PX1, int PY1, int PW1, int PH1, int PX2, int PY2, int PW2, int PH2 ) {}//end updateVariables
   void move() {
     x += speedx ;
     y += speedy ;

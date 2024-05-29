@@ -11,6 +11,7 @@ class Net extends Rectangle {
     rect(x, y, w, h);
     fill(0);
   }
+  void updateVariables(int TW, int TH, int TY, int PX1, int PY1, int PW1, int PH1, int PX2, int PY2, int PW2, int PH2 ) {}//end updateVariables
   int TableH, TableY ;
   void UpdateNets(int TH, int TY) {
     TableH = TH;

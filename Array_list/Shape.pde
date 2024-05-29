@@ -19,4 +19,5 @@ abstract class Shape {
   abstract void draw(); //Empty draw()
   abstract void keypressed();
   abstract void keyreleased();
+  abstract void updateVariables(int TW, int TH, int TY, int PX1, int PY1, int PW1, int PH1, int PX2, int PY2, int PW2, int PH2 );
 } //End Shape

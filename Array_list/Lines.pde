@@ -13,6 +13,7 @@ class Lines extends Rectangle {
   int TableH, TableY ;
   int LeftW, LeftX;
   int RightX;
+  void updateVariables(int TW, int TH, int TY, int PX1, int PY1, int PW1, int PH1, int PX2, int PY2, int PW2, int PH2 ) {}//end updateVariables
   void UpdateLines(int TH, int TY, int LW, int LX, int RX) {
     TableH = TH;
     TableY = TY;

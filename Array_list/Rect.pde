@@ -7,4 +7,5 @@ abstract class Rectangle extends Shape {
   //
   //Methods
   abstract void draw();
+  abstract void updateVariables(int TW, int TH, int TY, int PX1, int PY1, int PW1, int PH1, int PX2, int PY2, int PW2, int PH2 );
 } //End Rectangle

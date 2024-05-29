@@ -16,6 +16,7 @@ class PongTable extends Rectangle {
     //fill(resetDefault);
     //Reset the Defaults
   } //End draw()
+  void updateVariables(int TW, int TH, int TY, int PX1, int PY1, int PW1, int PH1, int PX2, int PY2, int PW2, int PH2 ) {}//end updateVariables
   void initializetable() {
     this.x = 0;
     this.y = displayHeight * 1/10;

@@ -7,6 +7,7 @@ abstract class Circle extends Shape{
   super(x, y, w, h, c);
   }
   abstract void draw();
+  abstract void updateVariables(int TW, int TH, int TY, int PX1, int PY1, int PW1, int PH1, int PX2, int PY2, int PW2, int PH2 );
   //
   float Xdirection() {
     float Xdirection = int (random(-2, 2));
