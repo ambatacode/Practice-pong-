@@ -7,7 +7,6 @@ class Scoreboard extends Display {
     fill(c);
     rect(x, y, w, h);
     if (x == 0){ Alexander("0`");}
-    if (x == 1){ mongel("0`");}
     fill(0);
   }
   void text() {
@@ -42,8 +41,5 @@ class Scoreboard extends Display {
   }
   void Alexander(String Leftscore){
     drawText( height, ink, CENTER, CENTER, Font, textSpace+Leftscore+textSpace, x, y, w, h);
-  }
-  void mongel(String Rightscore) {
-    drawText( height, ink, CENTER, CENTER, Font, textSpace+Rightscore+textSpace, x, y, w, h);
   }
 }

@@ -23,12 +23,12 @@ void setup() {
   Net Left = new Net(0, 0, 0, 0, 0);
   Left.UpdateNets(pongtablerect.h, pongtablerect.y);
   Left.Netintitialize();
-  shapes.add(Left);
+  
   //
   Net Right = new Net(1, 0, 0, 0, 0);
   Right.UpdateNets(pongtablerect.h, pongtablerect.y);
   Right.Netintitialize();
-  shapes.add(Right);
+  
   //
   Lines Middle = new Lines(displayWidth*1/2, 0, 0, 0, 0);
   Middle.UpdateLines(pongtablerect.h, pongtablerect.y, Left.w, Left.x, Right.x);
@@ -62,14 +62,16 @@ void setup() {
   Rightscoreboard.initializescore();
   
   shapes.add(pongtablerect);//0
-  shapes.add(Middle);//1
-  shapes.add(LLeft);//2
-  shapes.add(LRight);//3
-  shapes.add(P1Paddle);//4
-  shapes.add(P2Paddle);//5
-  shapes.add(Playball);//6
-  //shapes.add(Leftscoreboard);//7
-  shapes.add(Rightscoreboard);//8
+  shapes.add(Left);//1
+  shapes.add(Right);//2
+  shapes.add(Middle);//3
+  shapes.add(LLeft);//4
+  shapes.add(LRight);//5
+  shapes.add(P1Paddle);//6
+  shapes.add(P2Paddle);//7
+  shapes.add(Playball);//8
+  shapes.add(Leftscoreboard);//9
+  shapes.add(Rightscoreboard);//10
 
   //
   fullScreen();
@@ -78,7 +80,7 @@ void setup() {
 void draw() {
   background(#1c1c1c);
   //shapes.get(4).updateVariables(pongtablerect.y, pongtablerect.h, LLeft.x, LRight.x);
-  //shapes.get(6).updateVariables(shapes.get(0).w, shapes.get`(0).h, shapes.get(0).y, shapes.get(4).x, shapes.get(4).y, shapes.get(4).w, shapes.get(4).h, shapes.get(5).x, shapes.get(5).y, shapes.get(5).w, shapes.get(5).h);
+  shapes.get(8).updateVariables(shapes.get(0).w, shapes.get(0).h, shapes.get(0).y, shapes.get(6).x, shapes.get(6).y, shapes.get(6).w, shapes.get(6).h, shapes.get(7).x, shapes.get(7).y, shapes.get(7).w, shapes.get(7).h);
   for (Shape s : shapes) {
     s.draw();
   }
