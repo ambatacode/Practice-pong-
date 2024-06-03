@@ -1,3 +1,5 @@
+boolean pause = false;
+//
 class Ball extends Circle {
   //
   float SpeedSwitch;
@@ -63,7 +65,17 @@ class Ball extends Circle {
     if (x < PaddleX1 + PaddleW1 && y > PaddleY1 && y < PaddleY1 + PaddleH1 )speedx *= -1;
   }
   void keypressed() {
+    if (key == ' ') {
+      pause();
+    }
   }
   void keyreleased() {
   }
+void pause(){
+  if (pause){
+    pause = false;
+  }else {
+    pause = true;
+  }
+}
 }

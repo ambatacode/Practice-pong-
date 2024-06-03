@@ -11,6 +11,7 @@ Firework []firework = new Firework[50];
 ArrayList<Shape> shapes = new ArrayList<Shape>();
 //
 void setup() {
+  fullScreen();
   setupText();
   PongTable pongtablerect = new PongTable (0, 0, 0, 0, 0);
   
@@ -54,11 +55,11 @@ void setup() {
   //Playball.updateVariables(pongtablerect.w, pongtablerect.h, pongtablerect.y, P1Paddle.x, P1Paddle.y, P1Paddle.w, P1Paddle.h, P2Paddle.x, P2Paddle.y, P2Paddle.w, P2Paddle.h);
   //
   Scoreboard Leftscoreboard = new Scoreboard(0, 0, 0, 0, 0);
-  Leftscoreboard.updateSB(pongtablerect.y, pongtablerect.h, LLeft.x, LRight.x);
+  Leftscoreboard.updateVariables(pongtablerect.y, pongtablerect.h, LLeft.x, LRight.x, Playball.x, 0, 0, 0, 0, 0, 0);
   Leftscoreboard.initializescore();
   //
   Scoreboard Rightscoreboard = new Scoreboard(1, 0, 0, 0, 0);
-  Rightscoreboard.updateSB(pongtablerect.y, pongtablerect.h, LLeft.x, LRight.x);
+  Rightscoreboard.updateVariables(pongtablerect.y, pongtablerect.h, LLeft.x, LRight.x, 0, 0, 0, 0, 0, 0, 0);
   Rightscoreboard.initializescore();
   
   shapes.add(pongtablerect);//0
@@ -74,13 +75,13 @@ void setup() {
   shapes.add(Rightscoreboard);//10
 
   //
-  fullScreen();
 }
 //
 void draw() {
   background(#1c1c1c);
   //shapes.get(4).updateVariables(pongtablerect.y, pongtablerect.h, LLeft.x, LRight.x);
   shapes.get(8).updateVariables(shapes.get(0).w, shapes.get(0).h, shapes.get(0).y, shapes.get(6).x, shapes.get(6).y, shapes.get(6).w, shapes.get(6).h, shapes.get(7).x, shapes.get(7).y, shapes.get(7).w, shapes.get(7).h);
+  shapes.get(9).updateVariables(shapes.get(0).y, shapes.get(0).h, shapes.get(4).x, shapes.get(5).x, shapes.get(8).x, 0, 0, 0, 0, 0, 0);
   for (Shape s : shapes) {
     s.draw();
   }

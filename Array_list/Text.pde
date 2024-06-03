@@ -1,6 +1,6 @@
 //Global Variable
 PFont Font;
-color ink = 0, resetInk = #FFFFFF;
+color ink = #00ff15, resetInk = #000000;
 int alignHorizontal, alignVertical;
 String  textcomma = ",", textSpace = "  ", textPeriod = ".";
 String text = "whoop";
@@ -34,5 +34,6 @@ float textCalculator( float size, String text, float textPara ) {
     textSize(size *= 0.8); //decreases text size by 20%
   }
   return size;
+  
 }//end textCalculator
 //end Text SubProgram
