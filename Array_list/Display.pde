@@ -3,6 +3,5 @@ abstract class Display extends Rectangle {
     super(x, y, w, h, c);
   }
   abstract void draw();
-  
-  abstract void text();
+  abstract void mousepressed();
 }

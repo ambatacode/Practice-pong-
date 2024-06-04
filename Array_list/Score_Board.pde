@@ -41,7 +41,7 @@ class Scoreboard extends Display {
   void keyreleased() {
   }
   void Alexander(String Leftscore) {
-    drawText( height, ink, CENTER, CENTER, Font, textSpace+textSpace+textSpace+textSpace+Leftscore+textSpace+textSpace+textSpace+textSpace, x, y, w, h);
+    drawText( height, ink, CENTER, CENTER, Font, textSpace+textSpace+Leftscore+textSpace+textSpace, x, y, w, h);
   }
   void wincondition() {
     if (BallX < 0) {
@@ -55,4 +55,5 @@ class Scoreboard extends Display {
       shapes.get(8).y = height/2;
     }
   }
+  void mousepressed(){}
 }

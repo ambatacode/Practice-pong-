@@ -5,6 +5,8 @@ class Ball extends Circle {
   float SpeedSwitch;
   int BallRadius;
   boolean SpeedEGG = false;
+  float directionx = Xdirection();
+  float directiony =  Ydirection();
   //
   Ball(int x, int y, int w, int h, color c) {
     super(x, y, w, h, c);
@@ -15,15 +17,23 @@ class Ball extends Circle {
     this.h = BallRadius;
     this.speedx = Xdirection();
     this.speedy = Ydirection();
-    this.SpeedSwitch = 12;
+    this.SpeedSwitch = 7;
     this.c = c;
   }
   void draw() {
+    if (x < 0) {
+      this.directionx = Xdirection();
+      this.directiony = Ydirection();
+    }
+    if (x > width) {
+      this.directionx = Xdirection();
+      this.directiony = Ydirection();
+    }
     c = (#FFFFFF);
     fill(c);
     rect(x, y, w, h);
     fill(0);
-    move();
+    if (!pause)move();
     updateVariables(shapes.get(0).w, shapes.get(0).h, shapes.get(0).y, shapes.get(4).x, shapes.get(4).y, shapes.get(4).w, shapes.get(4).h, shapes.get(5).x, shapes.get(5).y, shapes.get(5).w, shapes.get(5).h);
   }
 
@@ -37,8 +47,8 @@ class Ball extends Circle {
   void move() {
     speedegg();
     bounce();
-    x += speedx * SpeedSwitch;
-    y += speedy * SpeedSwitch;
+    x += directionx * SpeedSwitch;
+    y += directiony * SpeedSwitch;
   }
   int TableW, TableH, TableX, TableY;
   int PaddleX1, PaddleY1, PaddleW1, PaddleH1;
@@ -60,12 +70,12 @@ class Ball extends Circle {
     println(PaddleY1);
   }
   void bounce() {
-    if (y  < (TableY)|| y > TableY + TableH - w) speedy *= -1;  
-    if (x > PaddleX2 - BallRadius && y > PaddleY2 && y < PaddleY2 + PaddleH2)speedx *= -1;
-    if (x < PaddleX1 + PaddleW1 && y > PaddleY1 && y < PaddleY1 + PaddleH1 )speedx *= -1;
+    if (y  < (TableY)|| y > TableY + TableH - w) directiony *= -1;  
+    if (x > PaddleX2 - BallRadius && y > PaddleY2 && y < PaddleY2 + PaddleH2)directionx *= -1;
+    if (x < PaddleX1 + PaddleW1 && y > PaddleY1 && y < PaddleY1 + PaddleH1 )directionx *= -1;
   }
   void keypressed() {
-    if (key == ' ') {
+    if (key == 'p') {
       pause();
     }
   }

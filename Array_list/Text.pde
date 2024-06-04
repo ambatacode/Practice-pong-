@@ -1,6 +1,6 @@
 //Global Variable
 PFont Font;
-color ink = #00ff15, resetInk = #000000;
+color ink = #4d4d4d, resetInk = #000000;
 int alignHorizontal, alignVertical;
 String  textcomma = ",", textSpace = "  ", textPeriod = ".";
 String text = "whoop";

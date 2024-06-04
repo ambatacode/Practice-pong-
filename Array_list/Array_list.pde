@@ -62,6 +62,9 @@ void setup() {
   Rightscoreboard.updateVariables(pongtablerect.y, pongtablerect.h, LLeft.x, LRight.x, 0, 0, 0, 0, 0, 0, 0);
   Rightscoreboard.initializescore();
   
+  Button Pause = new Button(width/2 - (width/10 * 1/2) ,height/30,width/10,height/19,(#FFFFFF));
+  
+  
   shapes.add(pongtablerect);//0
   shapes.add(Left);//1
   shapes.add(Right);//2
@@ -73,6 +76,7 @@ void setup() {
   shapes.add(Playball);//8
   shapes.add(Leftscoreboard);//9
   shapes.add(Rightscoreboard);//10
+  shapes.add(Pause);//11
 
   //
 }
@@ -99,4 +103,7 @@ void keyReleased() {
 }
 //
 void mousePressed() {
+   for (Shape s : shapes) {
+    s.mousepressed();
+  }
 }
