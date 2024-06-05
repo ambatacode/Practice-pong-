@@ -1,4 +1,6 @@
 boolean pause = false;
+boolean pongon = false;
+boolean menuon = true;
 //
 class Ball extends Circle {
   //
@@ -21,6 +23,10 @@ class Ball extends Circle {
     this.c = c;
   }
   void draw() {
+    if(pongon) drawing();
+  }
+  //
+  void drawing() {
     if (x < 0) {
       this.directionx = Xdirection();
       this.directiony = Ydirection();
@@ -67,25 +73,17 @@ class Ball extends Circle {
     PaddleY2 = PY2 ;
     PaddleW2 = PW2 ;
     PaddleH2 = PH2 ;
-    println(PaddleY1);
+    println(x);
   }
   void bounce() {
-    if (y  < (TableY)|| y > TableY + TableH - w) directiony *= -1;  
-    if (x > PaddleX2 - BallRadius && y > PaddleY2 && y < PaddleY2 + PaddleH2)directionx *= -1;
-    if (x < PaddleX1 + PaddleW1 && y > PaddleY1 && y < PaddleY1 + PaddleH1 )directionx *= -1;
+    if (y  < (TableY)|| y > TableY + TableH - w) directiony *= -1;
+    if (x > PaddleX2 - BallRadius && y > PaddleY2 && y < PaddleY2 + PaddleH2 && x < PaddleX2 + PaddleW2 )directionx *= -1;
+    if (x < PaddleX1 + PaddleW1 && y > PaddleY1 && y < PaddleY1 + PaddleH1 && x > PaddleX1 )directionx *= -1;
   }
   void keypressed() {
-    if (key == 'p') {
-      pause();
-    }
   }
   void keyreleased() {
   }
-void pause(){
-  if (pause){
-    pause = false;
-  }else {
-    pause = true;
+  void mousepressed() {
   }
-}
 }

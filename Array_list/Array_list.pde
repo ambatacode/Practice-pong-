@@ -62,7 +62,8 @@ void setup() {
   Rightscoreboard.updateVariables(pongtablerect.y, pongtablerect.h, LLeft.x, LRight.x, 0, 0, 0, 0, 0, 0, 0);
   Rightscoreboard.initializescore();
   
-  Button Pause = new Button(width/2 - (width/10 * 1/2) ,height/30,width/10,height/19,(#FFFFFF));
+  Button Pause = new Button(width/2 - (width/10 * 1/2),height/30,width/10,height/19,#363636);
+  Button exit = new Button(width*19/20,height/70,width/20,height/19,#363636);
   
   
   shapes.add(pongtablerect);//0
@@ -77,6 +78,7 @@ void setup() {
   shapes.add(Leftscoreboard);//9
   shapes.add(Rightscoreboard);//10
   shapes.add(Pause);//11
+  shapes.add(exit);//12
 
   //
 }

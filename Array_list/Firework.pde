@@ -27,4 +27,5 @@ class Firework extends Circle {
   }
   void keyreleased() {
   }
+  void mousepressed(){}
 }

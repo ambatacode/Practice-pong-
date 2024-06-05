@@ -5,6 +5,9 @@ class Lines extends Rectangle {
     super(x, y, w, h, c);
   }
   void draw() {
+    if (pongon) drawing();
+  }
+  void drawing() {
     c = #FFFFFF;
     fill(c);
     rect(x, y, w, h);
@@ -13,7 +16,8 @@ class Lines extends Rectangle {
   int TableH, TableY ;
   int LeftW, LeftX;
   int RightX;
-  void updateVariables(int TW, int TH, int TY, int PX1, int PY1, int PW1, int PH1, int PX2, int PY2, int PW2, int PH2 ) {}//end updateVariables
+  void updateVariables(int TW, int TH, int TY, int PX1, int PY1, int PW1, int PH1, int PX2, int PY2, int PW2, int PH2 ) {
+  }//end updateVariables
   void UpdateLines(int TH, int TY, int LW, int LX, int RX) {
     TableH = TH;
     TableY = TY;
@@ -48,5 +52,7 @@ class Lines extends Rectangle {
   void keypressed() {
   }
   void keyreleased() {
+  }
+  void mousepressed() {
   }
 }

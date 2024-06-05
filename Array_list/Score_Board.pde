@@ -6,10 +6,13 @@ class Scoreboard extends Display {
     super(x, y, w, h, c);
   }
   void draw () {
+    if(pongon)drawing();
+  }//end draw
+  void drawing() {
     if (x == LineLX) Alexander(str(scoreleft));
     if (x == LineRX - displayWidth* 3/7) Alexander(str(scoreright));
     wincondition();
-  }//end draw
+  }
   void text() {
   }
   void updateVariables(int TY, int TH, int LLX, int LLR, int BX, int PW1, int PH1, int PX2, int PY2, int PW2, int PH2 ) {
@@ -55,5 +58,6 @@ class Scoreboard extends Display {
       shapes.get(8).y = height/2;
     }
   }
-  void mousepressed(){}
+  void mousepressed() {
+  }
 }

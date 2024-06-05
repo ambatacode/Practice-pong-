@@ -7,16 +7,15 @@ class PongTable extends Rectangle {
   //
   //Methods
   void draw() {
-    //Border: foreground v background, separation from table to buttons
-    //Background Colour: simple fill or toggle with nightMode
-    //println(c);
+    if (pongon) drawing();
+  } //End draw()
+  void drawing() {
     c = (#000000);
     fill(c);
     rect(x, y, w, h); //Pong Table
-    //fill(resetDefault);
-    //Reset the Defaults
-  } //End draw()
-  void updateVariables(int TW, int TH, int TY, int PX1, int PY1, int PW1, int PH1, int PX2, int PY2, int PW2, int PH2 ) {}//end updateVariables
+  }
+  void updateVariables(int TW, int TH, int TY, int PX1, int PY1, int PW1, int PH1, int PX2, int PY2, int PW2, int PH2 ) {
+  }//end updateVariables
   void initializetable() {
     this.x = 0;
     this.y = displayHeight * 1/10;
@@ -26,5 +25,7 @@ class PongTable extends Rectangle {
   void keypressed() {
   }
   void keyreleased() {
+  }
+  void mousepressed() {
   }
 } //End PongTable

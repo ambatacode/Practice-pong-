@@ -11,6 +11,9 @@ class Paddle extends Rectangle {
   }
 
   void draw() {
+    if (pongon)drawing();
+  }
+  void drawing() {
     c = (#FFFFFF);
     fill(c);
     rect(x, y, w, h);
@@ -18,7 +21,8 @@ class Paddle extends Rectangle {
     move();
     println(x);
   }
-  void updateVariables(int TW, int TH, int TY, int PX1, int PY1, int PW1, int PH1, int PX2, int PY2, int PW2, int PH2 ) {}//end updateVariables
+  void updateVariables(int TW, int TH, int TY, int PX1, int PY1, int PW1, int PH1, int PX2, int PY2, int PW2, int PH2 ) {
+  }//end updateVariables
   void move() {
     if (up == true) {
       moveup();
@@ -98,5 +102,7 @@ class Paddle extends Rectangle {
         down = false;
       }
     }
+  }
+  void mousepressed() {
   }
 }
