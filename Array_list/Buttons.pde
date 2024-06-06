@@ -17,7 +17,7 @@ class Button extends Display {
     }
   }
   void menudrawing() {
-    if (x == width/2 - width/10 * 1/2&& y == height/2) {
+    if (x == width/2 - width/7 * 1/2) {
       rect(x, y, w, h);
     }
   }
@@ -35,6 +35,7 @@ class Button extends Display {
   void mousepressed() {
     mousepressedpaused();
     mousepressedquit();
+    if(menuon)mousepressedstartgame();
   }
 
   void mousepressedpaused() {
@@ -45,6 +46,19 @@ class Button extends Display {
   void mousepressedquit() {
     if (x == width*19/20) {
       if (mouseX>=x && mouseX<=x+w && mouseY>=y && mouseY<=y+h) exit();
+    }
+  }
+  void mousepressedstartgame() {
+    if (x == width/2 - width/7 * 1/2) {
+      if (mouseX>=x && mouseX<=x+w && mouseY>=y && mouseY<=y+h) {
+        if (menuon) {
+          menuon = false;
+          pongon = true;
+        } else {
+          menuon = true;
+          pongon = false;
+        }
+      }
     }
   }
   void pause() {

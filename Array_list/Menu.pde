@@ -5,10 +5,12 @@ class Menu extends Display {
     super(x, y, w, h, c);
   }
   void draw () {
+
     if (menuon)drawing();
   }//end draw
   void drawing() {
-    if (x == width/2 - (width*8/15*1/2))Heathcliff("P-O-N-G");
+    rect(x, y, w, h);
+    if (x == width/2 - (width*8/15*1/2))Heathcliff("");
   }
   void text() {
   }
@@ -23,6 +25,15 @@ class Menu extends Display {
   }
 
   void Heathcliff(String wutharingheights) {
-    drawText( height, #00ff44, CENTER, CENTER, Font, textSpace+textSpace+wutharingheights+textSpace+textSpace, x, y, w, h);
+    drawText( height, #00ff44, CENTER, CENTER, Font, textSpace+wutharingheights+textSpace, x, y, w, h);
   }
+  PImage light;
+
+void drawimage(){
+  light = loadImage("data/Xeroclightsimbol.png.png");
+}
+
+void drawImagesWeather() {
+  image( light, x,y,w,h );
+}
 }
