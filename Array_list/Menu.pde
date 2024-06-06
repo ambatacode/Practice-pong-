@@ -8,12 +8,7 @@ class Menu extends Display {
     if (menuon)drawing();
   }//end draw
   void drawing() {
-    if (randomnumber > 1 && randomnumber < 190) {
-      if (x == width/2 - (width*8/15*1/2))Heathcliff("Pong");
-    }
-    if (randomnumber > 191 && randomnumber < 200) {
-      if (x == width/2 - (width*8/15*1/2))Heathcliff("PonG");
-    }
+    if (x == width/2 - (width*8/15*1/2))Heathcliff("P-O-N-G");
   }
   void text() {
   }

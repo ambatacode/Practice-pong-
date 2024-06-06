@@ -62,8 +62,9 @@ void setup() {
   //
   Button Pause = new Button(width/2 - (width/10 * 1/2), height/30, width/10, height/19, #363636);
   Button exit = new Button(width*19/20, height/70, width/20, height/19, #363636);
+  Button play = new Button(width/2 - width/10 * 1/2,height/2, width/10, height/19,0);
   //
-  Menu LOGO = new Menu(width/2 - (width*8/15*1/2), height/15, width*8/15, height*3/9, 0);
+  Menu LOGO = new Menu(width/2 - (width*8/15*1/2), height/15, width*8/15, height*3/9, #363636);
 
 
   shapes.add(pongtablerect);//0
@@ -80,11 +81,14 @@ void setup() {
   shapes.add(Pause);//11
   shapes.add(exit);//12
   shapes.add(LOGO);//13
+  shapes.add(play);//14
   println(randomnumber);
   //
+  
 }
 //
 void draw() {
+  
   if (menuon)randomizer();
   background(#1c1c1c);
   shapes.get(8).updateVariables(shapes.get(0).w, shapes.get(0).h, shapes.get(0).y, shapes.get(6).x, shapes.get(6).y, shapes.get(6).w, shapes.get(6).h, shapes.get(7).x, shapes.get(7).y, shapes.get(7).w, shapes.get(7).h);

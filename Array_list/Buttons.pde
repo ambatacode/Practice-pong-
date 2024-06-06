@@ -4,6 +4,7 @@ class Button extends Display {
   }
   void draw() {
     if (pongon) drawing();
+    if (menuon) menudrawing();
   }
   void drawing() {
     fill(c);
@@ -12,6 +13,11 @@ class Button extends Display {
       sinclair("PAUSE");
     }
     if (x == width*19/20) {
+      rect(x, y, w, h);
+    }
+  }
+  void menudrawing() {
+    if (x == width/2 - width/10 * 1/2&& y == height/2) {
       rect(x, y, w, h);
     }
   }
