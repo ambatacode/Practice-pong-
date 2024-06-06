@@ -73,7 +73,7 @@ class Ball extends Circle {
     PaddleY2 = PY2 ;
     PaddleW2 = PW2 ;
     PaddleH2 = PH2 ;
-    println(x);
+    
   }
   void bounce() {
     if (y  < (TableY)|| y > TableY + TableH - w) directiony *= -1;

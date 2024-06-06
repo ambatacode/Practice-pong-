@@ -4,8 +4,6 @@ import ddf.minim.effects.*;
 import ddf.minim.signals.*;
 import ddf.minim.spi.*;
 import ddf.minim.ugens.*;
-
-
 Paddle P1Paddle, P2Paddle;
 Firework []firework = new Firework[50];
 ArrayList<Shape> shapes = new ArrayList<Shape>();
@@ -14,7 +12,7 @@ void setup() {
   fullScreen();
   setupText();
   PongTable pongtablerect = new PongTable (0, 0, 0, 0, 0);
-  
+
   pongtablerect.initializetable();
   //
   for (int i=0; i< firework.length; i++) {
@@ -24,12 +22,12 @@ void setup() {
   Net Left = new Net(0, 0, 0, 0, 0);
   Left.UpdateNets(pongtablerect.h, pongtablerect.y);
   Left.Netintitialize();
-  
+
   //
   Net Right = new Net(1, 0, 0, 0, 0);
   Right.UpdateNets(pongtablerect.h, pongtablerect.y);
   Right.Netintitialize();
-  
+
   //
   Lines Middle = new Lines(displayWidth*1/2, 0, 0, 0, 0);
   Middle.UpdateLines(pongtablerect.h, pongtablerect.y, Left.w, Left.x, Right.x);
@@ -61,11 +59,13 @@ void setup() {
   Scoreboard Rightscoreboard = new Scoreboard(1, 0, 0, 0, 0);
   Rightscoreboard.updateVariables(pongtablerect.y, pongtablerect.h, LLeft.x, LRight.x, 0, 0, 0, 0, 0, 0, 0);
   Rightscoreboard.initializescore();
-  
-  Button Pause = new Button(width/2 - (width/10 * 1/2),height/30,width/10,height/19,#363636);
-  Button exit = new Button(width*19/20,height/70,width/20,height/19,#363636);
-  
-  
+  //
+  Button Pause = new Button(width/2 - (width/10 * 1/2), height/30, width/10, height/19, #363636);
+  Button exit = new Button(width*19/20, height/70, width/20, height/19, #363636);
+  //
+  Menu LOGO = new Menu(width/2 - (width*8/15*1/2), height/15, width*8/15, height*3/9, 0);
+
+
   shapes.add(pongtablerect);//0
   shapes.add(Left);//1
   shapes.add(Right);//2
@@ -79,13 +79,14 @@ void setup() {
   shapes.add(Rightscoreboard);//10
   shapes.add(Pause);//11
   shapes.add(exit);//12
-
+  shapes.add(LOGO);//13
+  println(randomnumber);
   //
 }
 //
 void draw() {
+  if (menuon)randomizer();
   background(#1c1c1c);
-  //shapes.get(4).updateVariables(pongtablerect.y, pongtablerect.h, LLeft.x, LRight.x);
   shapes.get(8).updateVariables(shapes.get(0).w, shapes.get(0).h, shapes.get(0).y, shapes.get(6).x, shapes.get(6).y, shapes.get(6).w, shapes.get(6).h, shapes.get(7).x, shapes.get(7).y, shapes.get(7).w, shapes.get(7).h);
   shapes.get(9).updateVariables(shapes.get(0).y, shapes.get(0).h, shapes.get(4).x, shapes.get(5).x, shapes.get(8).x, 0, 0, 0, 0, 0, 0);
   for (Shape s : shapes) {
@@ -94,6 +95,16 @@ void draw() {
 }
 //
 void keyPressed() {
+  if (key == 'm') {
+    if (menuon) {
+      menuon = false;
+      pongon = true;
+    } else {
+      menuon = true;
+      pongon = false;
+    }
+  }
+  //
   for (Shape s : shapes) {
     s.keypressed();
   }
@@ -105,7 +116,7 @@ void keyReleased() {
 }
 //
 void mousePressed() {
-   for (Shape s : shapes) {
+  for (Shape s : shapes) {
     s.mousepressed();
   }
 }
