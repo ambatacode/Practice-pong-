@@ -1,17 +1,21 @@
- PImage light;
-class imagee extends Display {
- 
-  void imagere() {
-    light = loadImage("data/Xeroclightsimbol.png.png");
-  }
-  imagee(PImage Image, int x, int y, int w, int h, color c) {
+class Image extends Display {
+  PImage image;
+  PImage image2;
+  PImage image3;
+  Image(int x, int y, int w, int h, color c) {
     super(x, y, w, h, c);
+  }
+  void identifyImage( String i, String i1, String i2) {
+    image = loadImage(i);
+    image2 = loadImage(i1);
+    image3 = loadImage(i2);
   }
   void draw () {
     if (menuon)drawing();
   }//end draw
   void drawing() {
-    image(light, x, y, w, h );
+    if (X == 0) image(image, x, y, w, h);
+    if (x == 1) image(image2, x, y, w, h );
   }
   void text() {
   }

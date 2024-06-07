@@ -10,7 +10,7 @@ class Menu extends Display {
   }//end draw
   void drawing() {
     rect(x, y, w, h);
-    if (x == width/2 - (width*8/15*1/2))Heathcliff("");
+    if (x == width/2 - (width*8/15*1/2))Heathcliff("PONG");
   }
   void text() {
   }

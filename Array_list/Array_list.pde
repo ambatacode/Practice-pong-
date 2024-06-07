@@ -10,6 +10,9 @@ ArrayList<Shape> shapes = new ArrayList<Shape>();
 //
 void setup() {
   fullScreen();
+  String lightIm = "data/Xeroclightsimbol.png.png";
+  String teethIm = "data/s-l1200(1).png";
+  String flowerIm = 
   setupText();
   PongTable pongtablerect = new PongTable (0, 0, 0, 0, 0);
 
@@ -22,7 +25,6 @@ void setup() {
   Net Left = new Net(0, 0, 0, 0, 0);
   Left.UpdateNets(pongtablerect.h, pongtablerect.y);
   Left.Netintitialize();
-
   //
   Net Right = new Net(1, 0, 0, 0, 0);
   Right.UpdateNets(pongtablerect.h, pongtablerect.y);
@@ -66,8 +68,11 @@ void setup() {
   //
   Menu LOGO = new Menu(width/2 - (width*8/15*1/2), height/15, width*8/15, height*3/9, #363636);
   //
-  imagee LIGHT = new imagee(light,0,0,658,879,0);
-
+  Image LIGHT = new Image(0,0,658,879,0);
+  LIGHT.identifyImage(lightIm, teethIm,FlowerIm);
+  //
+  Image Teeth = new Image(1,0,600,600,0);
+  Teeth.identifyImage(lightIm, teethIm,FlowerIm);
 
   shapes.add(pongtablerect);//0
   shapes.add(Left);//1
@@ -82,9 +87,10 @@ void setup() {
   shapes.add(Rightscoreboard);//10
   shapes.add(Pause);//11
   shapes.add(exit);//12
-  shapes.add(LOGO);//13
-  shapes.add(play);//14
-  shapes.add(LIGHT);//15
+  shapes.add(LIGHT);//13
+  shapes.add(LOGO);//14
+  shapes.add(play);//15
+  shapes.add(Teeth);//16
   println(randomnumber);
   //
   
