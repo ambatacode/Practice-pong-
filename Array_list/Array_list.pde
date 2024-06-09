@@ -12,7 +12,8 @@ void setup() {
   fullScreen();
   String lightIm = "data/Xeroclightsimbol.png.png";
   String teethIm = "data/s-l1200(1).png";
-  String flowerIm = 
+  String flowerIm ="data/sunflower+icon.png" ;
+  String LandsccapeIm ="data/enchanting-cutouts-of-green-hills-landscape-free-png(1).png" ;
   setupText();
   PongTable pongtablerect = new PongTable (0, 0, 0, 0, 0);
 
@@ -64,15 +65,21 @@ void setup() {
   //
   Button Pause = new Button(width/2 - (width/10 * 1/2), height/30, width/10, height/19, #363636);
   Button exit = new Button(width*19/20, height/70, width/20, height/19, #363636);
-  Button play = new Button(width/2 - width/7 * 1/2,height*5/12, width/7, height/9,0);
+  Button play = new Button(width/2 - width/7 * 1/2, height*5/12, width/7, height/9, 0);
   //
   Menu LOGO = new Menu(width/2 - (width*8/15*1/2), height/15, width*8/15, height*3/9, #363636);
   //
-  Image LIGHT = new Image(0,0,658,879,0);
-  LIGHT.identifyImage(lightIm, teethIm,FlowerIm);
+  Image LIGHT = new Image(width/2 - width/5 *1/2, height/30, width/5, height/3, 0);
+  LIGHT.identifyImage(lightIm, teethIm, flowerIm, LandsccapeIm);
   //
-  Image Teeth = new Image(1,0,600,600,0);
-  Teeth.identifyImage(lightIm, teethIm,FlowerIm);
+  Image Teeth = new Image(0, 0, width/10, height, 0);
+  Teeth.identifyImage(lightIm, teethIm, flowerIm, LandsccapeIm);
+  //
+  Image Teeth2 = new Image(width - (width/10), 0, width/10, height, 0);
+  Teeth2.identifyImage(lightIm, teethIm, flowerIm, LandsccapeIm);
+  //
+  Image Land = new Image(0, height * 2/3, width, height/3, 0);
+  Land.identifyImage(lightIm, teethIm, flowerIm, LandsccapeIm);
 
   shapes.add(pongtablerect);//0
   shapes.add(Left);//1
@@ -90,15 +97,17 @@ void setup() {
   shapes.add(LIGHT);//13
   shapes.add(LOGO);//14
   shapes.add(play);//15
-  shapes.add(Teeth);//16
+  shapes.add(Land);//16
+  shapes.add(Teeth);//17
+  shapes.add(Teeth2);//17
   println(randomnumber);
   //
-  
 }
 //
 void draw() {
   if (menuon)randomizer();
-  background(#1c1c1c);
+  if (menuon)background(#000000);
+  if (pongon)background(#1c1c1c);
   shapes.get(8).updateVariables(shapes.get(0).w, shapes.get(0).h, shapes.get(0).y, shapes.get(6).x, shapes.get(6).y, shapes.get(6).w, shapes.get(6).h, shapes.get(7).x, shapes.get(7).y, shapes.get(7).w, shapes.get(7).h);
   shapes.get(9).updateVariables(shapes.get(0).y, shapes.get(0).h, shapes.get(4).x, shapes.get(5).x, shapes.get(8).x, 0, 0, 0, 0, 0, 0);
   for (Shape s : shapes) {

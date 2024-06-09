@@ -9,7 +9,6 @@ class Menu extends Display {
     if (menuon)drawing();
   }//end draw
   void drawing() {
-    rect(x, y, w, h);
     if (x == width/2 - (width*8/15*1/2))Heathcliff("PONG");
   }
   void text() {
