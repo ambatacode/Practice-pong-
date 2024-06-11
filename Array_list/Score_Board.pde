@@ -6,7 +6,7 @@ class Scoreboard extends Display {
     super(x, y, w, h, c);
   }
   void draw () {
-    if(pongon)drawing();
+    if (pongon)drawing();
   }//end draw
   void drawing() {
     if (x == LineLX) Alexander(str(scoreleft));
@@ -15,14 +15,15 @@ class Scoreboard extends Display {
   }
   void text() {
   }
-  void updateVariables(int TY, int TH, int LLX, int LLR, int BX, int PW1, int PH1, int PX2, int PY2, int PW2, int PH2 ) {
+  void updateVariables(int TY, int TH, int LLX, int LLR, int BX, int BR, int PH1, int PX2, int PY2, int PW2, int PH2 ) {
     TableY = TY ;
     tableH = TH ;
     LineLX = LLX ;
     LineRX = LLR ;
     BallX = BX;
+    ballR = BR;
   }//end updateVariables
-  int TableY, tableH, LineLX, LineRX, BallX;
+  int TableY, tableH, LineLX, LineRX, BallX, ballR;
   void initializescore() {
     if (x == 0) {
       this.x = LineLX;
@@ -49,13 +50,15 @@ class Scoreboard extends Display {
   void wincondition() {
     if (BallX < 0) {
       scoreleft ++;
-      shapes.get(8).x = width/2;
-      shapes.get(8).y = height/2;
+      shapes.get(8).x = width/2 - displayHeight/25*1/2;
+      shapes.get(8).y = height/2 - displayHeight/25*1/2;
+      pause = true;
     }
     if (BallX > displayWidth) {
       scoreright ++;
-      shapes.get(8).x = width/2;
-      shapes.get(8).y = height/2;
+      shapes.get(8).x = width/2 - displayHeight/25*1/2;
+      shapes.get(8).y = height/2 - displayHeight/25*1/2;
+      pause = true;
     }
   }
   void mousepressed() {

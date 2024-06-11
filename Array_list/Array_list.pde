@@ -1,4 +1,4 @@
-import ddf.minim.*;
+  import ddf.minim.*;
 import ddf.minim.analysis.*;
 import ddf.minim.effects.*;
 import ddf.minim.signals.*;
@@ -56,16 +56,16 @@ void setup() {
   //Playball.updateVariables(pongtablerect.w, pongtablerect.h, pongtablerect.y, P1Paddle.x, P1Paddle.y, P1Paddle.w, P1Paddle.h, P2Paddle.x, P2Paddle.y, P2Paddle.w, P2Paddle.h);
   //
   Scoreboard Leftscoreboard = new Scoreboard(0, 0, 0, 0, 0);
-  Leftscoreboard.updateVariables(pongtablerect.y, pongtablerect.h, LLeft.x, LRight.x, Playball.x, 0, 0, 0, 0, 0, 0);
+  Leftscoreboard.updateVariables(pongtablerect.y, pongtablerect.h, LLeft.x, LRight.x, Playball.x, Playball.BallRadius, 0, 0, 0, 0, 0);
   Leftscoreboard.initializescore();
   //
   Scoreboard Rightscoreboard = new Scoreboard(1, 0, 0, 0, 0);
-  Rightscoreboard.updateVariables(pongtablerect.y, pongtablerect.h, LLeft.x, LRight.x, 0, 0, 0, 0, 0, 0, 0);
+  Rightscoreboard.updateVariables(pongtablerect.y, pongtablerect.h, LLeft.x, LRight.x,Playball.x, Playball.BallRadius, 0, 0, 0, 0, 0);
   Rightscoreboard.initializescore();
   //
   Button Pause = new Button(width/2 - (width/10 * 1/2), height/30, width/10, height/19, #363636);
   Button exit = new Button(width*19/20, height/70, width/20, height/19, #363636);
-  Button play = new Button(width/2 - width/7 * 1/2, height*5/12, width/7, height/9, 0);
+  Button play = new Button(width/2 - width/7 * 1/2, height*5/12, width/7, height/9, #FFFFFF);
   //
   Menu LOGO = new Menu(width/2 - (width*8/15*1/2), height/15, width*8/15, height*3/9, #363636);
   //
@@ -99,8 +99,8 @@ void setup() {
   shapes.add(play);//15
   shapes.add(Land);//16
   shapes.add(Teeth);//17
-  shapes.add(Teeth2);//17
-  println(randomnumber);
+  shapes.add(Teeth2);//18
+  println(timer);
   //
 }
 //

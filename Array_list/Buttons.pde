@@ -19,6 +19,7 @@ class Button extends Display {
   void menudrawing() {
     if (x == width/2 - width/7 * 1/2) {
       rect(x, y, w, h);
+      sinclair("Play");
     }
   }
   void keypressed() {
@@ -35,7 +36,7 @@ class Button extends Display {
   void mousepressed() {
     mousepressedpaused();
     mousepressedquit();
-    if(menuon)mousepressedstartgame();
+    if (menuon)mousepressedstartgame();
   }
 
   void mousepressedpaused() {
@@ -64,7 +65,9 @@ class Button extends Display {
   void pause() {
     if (pause) {
       pause = false;
-    } else {
+      
+    }
+    if (!pause) {
       pause = true;
     }
   }

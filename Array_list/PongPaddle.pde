@@ -19,7 +19,6 @@ class Paddle extends Rectangle {
     rect(x, y, w, h);
     fill(0);
     move();
-    println(x);
   }
   void updateVariables(int TW, int TH, int TY, int PX1, int PY1, int PW1, int PH1, int PX2, int PY2, int PW2, int PH2 ) {
   }//end updateVariables
@@ -53,7 +52,7 @@ class Paddle extends Rectangle {
   void initializePaddle() {
     paddleHeight = displayHeight * 8/10 * 1/4;
     PaddleWidth = (displayHeight * 1/20) * 1/3;
-    paddleTravel = 10;
+    paddleTravel = 15;
     if (x == 0) {
       this.x = x + LLeftX;
       this.y = (TableY) + (TableH * 1/2) - (paddleHeight * 1/2) ;

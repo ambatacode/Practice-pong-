@@ -9,10 +9,6 @@ class Net extends Rectangle {
     if (pongon)drawing();
   }
   void drawing() {
-    c = (#FFFFFF);
-    fill(c);
-    rect(x, y, w, h);
-    fill(0);
   }
   void updateVariables(int TW, int TH, int TY, int PX1, int PY1, int PW1, int PH1, int PX2, int PY2, int PW2, int PH2 ) {
   }//end updateVariables
