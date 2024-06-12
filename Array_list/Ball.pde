@@ -1,4 +1,4 @@
-boolean pause = true;
+  boolean pause = true;
 boolean pongon = false;
 boolean menuon = true;
 boolean start = true;
@@ -23,7 +23,7 @@ class Ball extends Circle {
     this.h = BallRadius;
     this.speedx = Xdirection();
     this.speedy = Ydirection();
-    this.SpeedSwitch = 7;
+    this.SpeedSwitch = 8;
     this.c = c;
   }
   void draw() {

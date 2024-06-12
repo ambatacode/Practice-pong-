@@ -5,6 +5,7 @@ class Paddle extends Rectangle {
   int paddleTravel;
   boolean up = false;
   boolean down = false;
+  boolean Hardmode = false;
   //
   Paddle(int x, int y, int w, int h, color c) {
     super(x, y, w, h, c);
@@ -19,8 +20,19 @@ class Paddle extends Rectangle {
     rect(x, y, w, h);
     fill(0);
     move();
+    println();
   }
-  void updateVariables(int TW, int TH, int TY, int PX1, int PY1, int PW1, int PH1, int PX2, int PY2, int PW2, int PH2 ) {
+  void updateVariables(int TX, int TY, int TW, int TH, int LLX, int LRX, int PX, int PY, int PY2, int PW2, int PH2 ) {
+    TableX = TX;
+    TableY = TY;
+    TableW = TW;
+    TableH = TH;
+    //
+    LLeftX = LLX;
+    LRightX = LRX;
+    //
+    Ballx = PX;
+    Bally = PY;
   }//end updateVariables
   void move() {
     if (up == true) {
@@ -39,16 +51,9 @@ class Paddle extends Rectangle {
     if (y > displayHeight * 1/10 + displayHeight * 8/10 - paddleHeight) y = displayHeight * 1/10 + displayHeight * 8/10 - paddleHeight;
   }
   int TableX, TableY, TableW, TableH;
-  int LLeftX, LRightX;
-  void UpdatePaddle(int TX, int TY, int TW, int TH, int LLX, int LRX) {
-    TableX = TX;
-    TableY = TY;
-    TableW = TW;
-    TableH = TH;
-    //
-    LLeftX = LLX;
-    LRightX = LRX;
-  }
+  int LLeftX, LRightX, Ballx, Bally;
+  //void UpdatePaddle(int TX, int TY, int TW, int TH, int LLX, int LRX) {
+  //}
   void initializePaddle() {
     paddleHeight = displayHeight * 8/10 * 1/4;
     PaddleWidth = (displayHeight * 1/20) * 1/3;
@@ -76,7 +81,7 @@ class Paddle extends Rectangle {
       if (key =='S'| key=='s') {
         down = true;
       }
-    } else {
+    } else if (!Hardmode) {
       if (key =='O'| key=='o') {
         up = true;
       }
@@ -93,7 +98,7 @@ class Paddle extends Rectangle {
       if (key =='S'| key=='s') {
         down = false;
       }
-    } else {
+    } else if (!Hardmode) {
       if (key =='O'| key=='o') {
         up = false;
       }
@@ -103,5 +108,8 @@ class Paddle extends Rectangle {
     }
   }
   void mousepressed() {
+  }
+  //
+  void hardmodeAI() {
   }
 }
