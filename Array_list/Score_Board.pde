@@ -7,6 +7,10 @@ class Scoreboard extends Display {
   }
   void draw () {
     if (pongon)drawing();
+      if (menuon){
+      scoreleft = 0;
+      scoreright = 0;
+    }
   }//end draw
   void drawing() {
     if (x == LineLX) Alexander(str(scoreleft));

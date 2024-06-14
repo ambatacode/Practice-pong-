@@ -1,4 +1,6 @@
   boolean Hardmode = false;
+  boolean Medmode = false;
+  Boolean Easymode = false;
 class Paddle extends Rectangle {
   //
   int paddleHeight;
@@ -20,8 +22,9 @@ class Paddle extends Rectangle {
     rect(x, y, w, h);
     fill(0);
     move();
-    println();
     if (Hardmode)hardmodeAI();
+    if (Medmode)mediummodeAi();
+    if (Easymode)easymodeAi();
   }
   void updateVariables(int TX, int TY, int TW, int TH, int LLX, int LRX, int PX, int PY, int PY2, int PW2, int PH2 ) {
     TableX = TX;
@@ -82,7 +85,7 @@ class Paddle extends Rectangle {
       if (key =='S'| key=='s') {
         down = true;
       }
-    } else if (!Hardmode) {
+    } else if (!Hardmode||!Medmode) {
       if (key =='O'| key=='o') {
         up = true;
       }
@@ -99,7 +102,7 @@ class Paddle extends Rectangle {
       if (key =='S'| key=='s') {
         down = false;
       }
-    } else if (!Hardmode) {
+    } else if (!Hardmode||!Medmode) {
       if (key =='O'| key=='o') {
         up = false;
       }
@@ -114,6 +117,34 @@ class Paddle extends Rectangle {
   void hardmodeAI() {
     if (x > width/2) {
       if (Ballx > width/2) {
+        if (y + paddleHeight/2 < Bally) {
+          up = false;
+          down = true;
+        }
+        if (y + paddleHeight/2 > Bally) {
+          up = true;
+          down = false;
+        }
+      }
+    }
+  }
+  void mediummodeAi(){
+    if (x > width/2) {
+      if (Ballx > width*5.5/7) {
+        if (y + paddleHeight/2 < Bally) {
+          up = false;
+          down = true;
+        }
+        if (y + paddleHeight/2 > Bally) {
+          up = true;
+          down = false;
+        }
+      }
+    }
+  }
+    void easymodeAi(){
+    if (x > width/2) {
+      if (Ballx > width*2/3) {
         if (y + paddleHeight/2 < Bally) {
           up = false;
           down = true;

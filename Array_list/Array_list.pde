@@ -67,31 +67,34 @@ void setup() {
   //
   Button Pause = new Button(width/2 - (width/10 * 1/2), height/30, width/10, height/19, #363636);
   Button exit = new Button(width*19/20, height/70, width/20, height/19, #363636);
-  Button play = new Button(width/2 - width/7 * 1/2, height*5/12, width/7, height/9, #FFFFFF);
+  Button play = new Button(width/2 - width/7 * 1/2, height*5/12, width/7, height/9, #000000);
   Button Log = new Button(width/2 - width/7 * 1/2, height*7/12, width/7, height/9, #FFFFFF);
   Button Backtomenu = new Button (width/30, height*16/20, height/7, height/7, #FFFFFF);
-  Button Hardmode = new Button (width/20, height*6/20, width/7, height/9, #FFFFFF);
+  Button Backtomenu2 = new Button (width/30, height/50, width/8, height/14, #000000);
+  Button Hardmode = new Button (width/20, height*6/20, width/7, height/9, 0);
+  Button Mediummode= new Button(width*4/20, height*6/20, width/7, height/9, 0);
+  Button Easymode= new Button(width*7/20, height*6/20, width/7, height/9, 0);
   //
   Image LIGHT = new Image(width/2 - width/2 *1/2, height/-5, width/2, height/1, 0);
-  LIGHT.identifyImage(lightIm, teethIm, LastMenuphotoiswearIm, LandsccapeIm, logoIm,LogHudIm);
+  LIGHT.identifyImage(lightIm, teethIm, LastMenuphotoiswearIm, LandsccapeIm, logoIm, LogHudIm);
   //
   Image Teeth = new Image(0, 0, width/10, height, 0);
-  Teeth.identifyImage(lightIm, teethIm, LastMenuphotoiswearIm, LandsccapeIm, logoIm,LogHudIm);
+  Teeth.identifyImage(lightIm, teethIm, LastMenuphotoiswearIm, LandsccapeIm, logoIm, LogHudIm);
   //
   Image Teeth2 = new Image(width - (width/10), 0, width/10, height, 0);
-  Teeth2.identifyImage(lightIm, teethIm, LastMenuphotoiswearIm, LandsccapeIm, logoIm,LogHudIm);
+  Teeth2.identifyImage(lightIm, teethIm, LastMenuphotoiswearIm, LandsccapeIm, logoIm, LogHudIm);
   //
   Image Garden = new Image(0, 0, width, height, 0);
-  Garden.identifyImage(lightIm, teethIm, LastMenuphotoiswearIm, LandsccapeIm, logoIm,LogHudIm);
+  Garden.identifyImage(lightIm, teethIm, LastMenuphotoiswearIm, LandsccapeIm, logoIm, LogHudIm);
   //
   Image Loghud = new Image(0, 0, width, height, 0);
-  Loghud.identifyImage(lightIm, teethIm, LastMenuphotoiswearIm, LandsccapeIm, logoIm,LogHudIm);
+  Loghud.identifyImage(lightIm, teethIm, LastMenuphotoiswearIm, LandsccapeIm, logoIm, LogHudIm);
   //
   Image Land = new Image(0, height * 2/3, width, height/3, 0);
-  Land.identifyImage(lightIm, teethIm, LastMenuphotoiswearIm, LandsccapeIm, logoIm,LogHudIm);
+  Land.identifyImage(lightIm, teethIm, LastMenuphotoiswearIm, LandsccapeIm, logoIm, LogHudIm);
 
   Image Logo = new Image(width/2 - (width*8/15*1/2), height/15, width*8/15, height*3/9, 0);
-  Logo.identifyImage(lightIm, teethIm, LastMenuphotoiswearIm, LandsccapeIm, logoIm,LogHudIm);
+  Logo.identifyImage(lightIm, teethIm, LastMenuphotoiswearIm, LandsccapeIm, logoIm, LogHudIm);
 
   shapes.add(pongtablerect);//0
   shapes.add(Left);//1
@@ -116,12 +119,18 @@ void setup() {
   shapes.add(Loghud);
   shapes.add(Logo);//
   shapes.add(Backtomenu);
+  shapes.add(Backtomenu2);
   shapes.add(Hardmode);
-  println(timer);
+  shapes.add(Mediummode);
+  shapes.add(Easymode);
   //
+  setupAudio();
 }
 //
 void draw() {
+  if (menuon)   currentSong = 0;
+  if (pongon) currentSong = 1;
+  println(currentSong);
   if (menuon)randomizer();
   if (menuon)background(#000000);
   if (pongon)background(#1c1c1c);
@@ -132,6 +141,7 @@ void draw() {
   for (Shape s : shapes) {
     s.draw();
   }
+  println(pause);
 }
 //
 void keyPressed() {

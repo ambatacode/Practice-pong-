@@ -1,4 +1,4 @@
-  boolean pause = true;
+boolean pause = true;
 boolean pongon = false;
 boolean menuon = true;
 boolean start = true;
@@ -23,15 +23,21 @@ class Ball extends Circle {
     this.h = BallRadius;
     this.speedx = Xdirection();
     this.speedy = Ydirection();
-    this.SpeedSwitch = 8;
+    this.SpeedSwitch = 10;
     this.c = c;
   }
   void draw() {
     if (pongon) {
+      countdown();
       drawing();
       counter();
       autostart();
-      println(timer);
+    }
+    if (menuon) {
+      pause = true;
+      x = displayWidth * 1/2 - BallRadius * 1/2;
+      y = height/2 - BallRadius/2;
+      timer = 0;
     }
   }
   //
@@ -48,7 +54,7 @@ class Ball extends Circle {
     fill(c);
     rect(x, y, w, h);
     fill(0);
-    if (!pause)move();
+    if (!pause && !lock)move();
     updateVariables(shapes.get(0).w, shapes.get(0).h, shapes.get(0).y, shapes.get(4).x, shapes.get(4).y, shapes.get(4).w, shapes.get(4).h, shapes.get(5).x, shapes.get(5).y, shapes.get(5).w, shapes.get(5).h);
   }
 
@@ -97,9 +103,33 @@ class Ball extends Circle {
     }
   }
   void autostart() {
-    if (timer > 300){
+    if (timer > 200) {
       pause = false;
     }
+  }
+  void countdown() {
+    if (pause && !lock) {
+      fill(#000000);
+      rect(width/2-height/3*1/2, height/2-height/3*1/2, height/3, height/3);
+      if (timer > 50  ) {
+        fill(#000000);
+        rect(width/2-height/3*1/2, height/2-height/3*1/2, height/3, height/3);
+        ishmael("3");
+      }
+      if (timer > 100 ) {
+        fill(#000000);
+        rect(width/2-height/3*1/2, height/2-height/3*1/2, height/3, height/3);
+        ishmael("2");
+      }
+      if (timer > 150) {
+        fill(#000000);
+        rect(width/2-height/3*1/2, height/2-height/3*1/2, height/3, height/3);
+        ishmael("1");
+      }
+    }
+  }
+  void ishmael(String countdown) {
+    drawText( height, ink, CENTER, CENTER, Font, textSpace+countdown+textSpace, width/2-height/3*1/2, height/2-height/3*1/2, height/3, height/3);
   }
   void keypressed() {
   }

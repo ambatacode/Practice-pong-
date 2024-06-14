@@ -6,7 +6,7 @@ class Button extends Display {
   void draw() {
     if (pongon) drawing();
     if (menuon) menudrawing();
-    if (Logon)LogDrawing();
+    if (Logon) LogDrawing();
   }
   void drawing() {
     fill(c);
@@ -16,6 +16,10 @@ class Button extends Display {
     }
     if (x == width*19/20) {
       rect(x, y, w, h);
+    }
+    if (x == width/30 &&y!= height*16/20) {
+      rect(x, y, w, h);
+      sinclair("<<");
     }
   }
   void menudrawing() {
@@ -29,20 +33,24 @@ class Button extends Display {
     }
   }
   void LogDrawing() {
-    if (x== width/30) {
+    if (x== width/30 &&y != height/50) {
       rect(x, y, w, h);
       sinclair("<<");
     }
     if (x==width/20) {
-      if (Hardmode) {
-        fill(#FF0000);
-        rect(x, y, w, h);
-      } else {
-        fill(#000000);
-        rect(x, y, w, h);
-      }
-
-      sinclair("hardmode");
+      colorchangeH();
+      rect(x, y, w, h);
+      sinclair("Hard");
+    }
+    if (x == width*4/20) {
+      colorchangeM();
+      rect(x, y, w, h);
+      sinclair("Medium");
+    }
+    if (x == width*7/20) {
+      colorchangeE();
+      rect(x, y, w, h);
+      sinclair("Easy");
     }
   }
   void keypressed() {
@@ -57,12 +65,15 @@ class Button extends Display {
     drawText( height, #FFFFFF, CENTER, CENTER, Font, textSpace+textSpace+SSP+textSpace+textSpace, x, y, w, h);
   }
   void mousepressed() {
-    mousepressedpaused();
-    mousepressedquit();
+    if (pongon)mousepressedpaused();
+    if (pongon)mousepressedquit();
     if (menuon)mousepressedstartgame();
     if (menuon)mousepressedLoggame();
     if (Logon)mousepressedBacktomenu();
     if (Logon)Dificultyhard();
+    if (pongon)mousepressedBacktomenu2();
+    if (Logon)DificultyMed();
+    if (Logon)DificultyEasy();
   }
 
   void mousepressedpaused() {
@@ -120,21 +131,96 @@ class Button extends Display {
       }
     }
   }
+  void mousepressedBacktomenu2() {
+    if (x == width/30) {
+      if (mouseX>=x && mouseX<=x+w && mouseY>=y && mouseY<=y+h) {
+        if (pongon) {
+          menuon = true;
+          pongon = false;
+          Logon = false;
+        } else if (!pongon) {
+          menuon = true;
+          pongon = false;
+          Logon = false;
+        }
+      }
+    }
+  }
   void Dificultyhard() {
+    if (x == width/20) {
+      if (mouseX>=x && mouseX<=x+w && mouseY>=y && mouseY<=y+h) {
+        if (!Hardmode) {
+          Hardmode = true;
+          Medmode = false;
+          Easymode = false;
+        } else {
+          Hardmode = false;
+          Medmode = false;
+          Easymode = false;
+        }
+      }
+    }
+  }
+  void DificultyMed() {
+    if (x == width*4/20) {
+      if (mouseX>=x && mouseX<=x+w && mouseY>=y && mouseY<=y+h) {
+        if (!Medmode) {
+          Medmode = true;
+          Hardmode = false;
+          Easymode = false;
+        } else {
+          Medmode = false;
+          Hardmode = false;
+          Easymode = false;
+        }
+      }
+    }
+  }
+    void DificultyEasy() {
+    if (x == width*7/20) {
+      if (mouseX>=x && mouseX<=x+w && mouseY>=y && mouseY<=y+h) {
+        if (!Easymode) {
+          Medmode = false;
+          Hardmode = false;
+          Easymode = true;
+        } else {
+          Medmode = false;
+          Hardmode = false;
+          Easymode = false;
+        }
+      }
+    }
+  }
+  void colorchangeH() {
     if (Hardmode) {
-      Hardmode = false;
+      fill(#FF0000);
     } else {
-      Hardmode = true;
+      fill(#000000);
     }
   }
-  void colorchange() {
+  void colorchangeM() {
+    if (Medmode) {
+      fill(#FF0000);
+    } else {
+      fill(#000000);
+    }
   }
-  void pause() {
-    if (pause) {
-      pause = false;
+    void colorchangeE() {
+    if (Easymode) {
+      fill(#FF0000);
+    } else {
+      fill(#000000);
     }
-    if (!pause) {
-      pause = true;
-    }
+  }
+  void dificultychangerbalance() {
+  }
+}
+void pause() {
+  if (pause) {
+    pause = false;
+    lock = false;
+  }else {
+    pause = true;
+    lock = true;
   }
 }
