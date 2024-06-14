@@ -1,4 +1,4 @@
-  import ddf.minim.*;
+import ddf.minim.*;
 import ddf.minim.analysis.*;
 import ddf.minim.effects.*;
 import ddf.minim.signals.*;
@@ -12,9 +12,10 @@ void setup() {
   fullScreen();
   String lightIm = "data/Xeroclightsimbol.png.png";
   String teethIm = "data/s-l1200(1).png";
-  String flowerIm ="data/sunflower+icon.png" ;
   String LandsccapeIm ="data/enchanting-cutouts-of-green-hills-landscape-free-png(1).png" ;
   String logoIm ="data/image_2024-06-12_105103335.png";
+  String LastMenuphotoiswearIm = "data/garden.png";
+  String LogHudIm ="data/Background zelot shop.png";
   setupText();
   PongTable pongtablerect = new PongTable (0, 0, 0, 0, 0);
 
@@ -46,11 +47,11 @@ void setup() {
   LRight.LinesInitialize();
   //
   Paddle P1Paddle = new Paddle(0, 0, 0, 0, 0);
-  P1Paddle.updateVariables(pongtablerect.x, pongtablerect.y, pongtablerect.w, pongtablerect.h, LLeft.x, LRight.x,0,0,0,0,0);
+  P1Paddle.updateVariables(pongtablerect.x, pongtablerect.y, pongtablerect.w, pongtablerect.h, LLeft.x, LRight.x, 0, 0, 0, 0, 0);
   P1Paddle.initializePaddle();
   //
   Paddle P2Paddle = new Paddle(1, 0, 0, 0, 0);
-  P2Paddle.updateVariables(pongtablerect.x, pongtablerect.y, pongtablerect.w, pongtablerect.h, LLeft.x, LRight.x,0,0,0,0,0);
+  P2Paddle.updateVariables(pongtablerect.x, pongtablerect.y, pongtablerect.w, pongtablerect.h, LLeft.x, LRight.x, 0, 0, 0, 0, 0);
   P2Paddle.initializePaddle();
   //
   Ball Playball = new Ball(0, 0, 0, 0, 0);
@@ -61,27 +62,36 @@ void setup() {
   Leftscoreboard.initializescore();
   //
   Scoreboard Rightscoreboard = new Scoreboard(1, 0, 0, 0, 0);
-  Rightscoreboard.updateVariables(pongtablerect.y, pongtablerect.h, LLeft.x, LRight.x,Playball.x, Playball.BallRadius, 0, 0, 0, 0, 0);
+  Rightscoreboard.updateVariables(pongtablerect.y, pongtablerect.h, LLeft.x, LRight.x, Playball.x, Playball.BallRadius, 0, 0, 0, 0, 0);
   Rightscoreboard.initializescore();
   //
   Button Pause = new Button(width/2 - (width/10 * 1/2), height/30, width/10, height/19, #363636);
   Button exit = new Button(width*19/20, height/70, width/20, height/19, #363636);
   Button play = new Button(width/2 - width/7 * 1/2, height*5/12, width/7, height/9, #FFFFFF);
+  Button Log = new Button(width/2 - width/7 * 1/2, height*7/12, width/7, height/9, #FFFFFF);
+  Button Backtomenu = new Button (width/30, height*16/20, height/7, height/7, #FFFFFF);
+  Button Hardmode = new Button (width/20, height*6/20, width/7, height/9, #FFFFFF);
   //
-  Image LIGHT = new Image(width/2 - width/5 *1/2, height/30, width/5, height/3, 0);
-  LIGHT.identifyImage(lightIm, teethIm, flowerIm, LandsccapeIm,logoIm);
+  Image LIGHT = new Image(width/2 - width/2 *1/2, height/-5, width/2, height/1, 0);
+  LIGHT.identifyImage(lightIm, teethIm, LastMenuphotoiswearIm, LandsccapeIm, logoIm,LogHudIm);
   //
   Image Teeth = new Image(0, 0, width/10, height, 0);
-  Teeth.identifyImage(lightIm, teethIm, flowerIm, LandsccapeIm,logoIm);
+  Teeth.identifyImage(lightIm, teethIm, LastMenuphotoiswearIm, LandsccapeIm, logoIm,LogHudIm);
   //
   Image Teeth2 = new Image(width - (width/10), 0, width/10, height, 0);
-  Teeth2.identifyImage(lightIm, teethIm, flowerIm, LandsccapeIm,logoIm);
+  Teeth2.identifyImage(lightIm, teethIm, LastMenuphotoiswearIm, LandsccapeIm, logoIm,LogHudIm);
+  //
+  Image Garden = new Image(0, 0, width, height, 0);
+  Garden.identifyImage(lightIm, teethIm, LastMenuphotoiswearIm, LandsccapeIm, logoIm,LogHudIm);
+  //
+  Image Loghud = new Image(0, 0, width, height, 0);
+  Loghud.identifyImage(lightIm, teethIm, LastMenuphotoiswearIm, LandsccapeIm, logoIm,LogHudIm);
   //
   Image Land = new Image(0, height * 2/3, width, height/3, 0);
-  Land.identifyImage(lightIm, teethIm, flowerIm, LandsccapeIm,logoIm);
-  
-  Image Logo = new Image(width/2 - (width*8/15*1/2), height/15, width*8/15, height*3/9,0);
-  Logo.identifyImage(lightIm, teethIm, flowerIm, LandsccapeIm,logoIm);
+  Land.identifyImage(lightIm, teethIm, LastMenuphotoiswearIm, LandsccapeIm, logoIm,LogHudIm);
+
+  Image Logo = new Image(width/2 - (width*8/15*1/2), height/15, width*8/15, height*3/9, 0);
+  Logo.identifyImage(lightIm, teethIm, LastMenuphotoiswearIm, LandsccapeIm, logoIm,LogHudIm);
 
   shapes.add(pongtablerect);//0
   shapes.add(Left);//1
@@ -97,11 +107,16 @@ void setup() {
   shapes.add(Pause);//11
   shapes.add(exit);//12
   shapes.add(LIGHT);//13
-  shapes.add(Logo);//14
   shapes.add(play);//15
   shapes.add(Land);//16
+  shapes.add(Log);
   shapes.add(Teeth);//17
   shapes.add(Teeth2);//18
+  shapes.add(Garden);
+  shapes.add(Loghud);
+  shapes.add(Logo);//
+  shapes.add(Backtomenu);
+  shapes.add(Hardmode);
   println(timer);
   //
 }
@@ -110,8 +125,8 @@ void draw() {
   if (menuon)randomizer();
   if (menuon)background(#000000);
   if (pongon)background(#1c1c1c);
-  shapes.get(6).updateVariables(shapes.get(0).x, shapes.get(0).y, shapes.get(0).w, shapes.get(0).h, shapes.get(4).x, shapes.get(5).x, shapes.get(8).x, shapes.get(8).y,0,0,0);
-  shapes.get(7).updateVariables(shapes.get(0).x, shapes.get(0).y, shapes.get(0).w, shapes.get(0).h, shapes.get(4).x, shapes.get(5).x, shapes.get(8).x, shapes.get(8).y,0,0,0);
+  shapes.get(6).updateVariables(shapes.get(0).x, shapes.get(0).y, shapes.get(0).w, shapes.get(0).h, shapes.get(4).x, shapes.get(5).x, shapes.get(8).x, shapes.get(8).y, 0, 0, 0);
+  shapes.get(7).updateVariables(shapes.get(0).x, shapes.get(0).y, shapes.get(0).w, shapes.get(0).h, shapes.get(4).x, shapes.get(5).x, shapes.get(8).x, shapes.get(8).y, 0, 0, 0);
   shapes.get(8).updateVariables(shapes.get(0).w, shapes.get(0).h, shapes.get(0).y, shapes.get(6).x, shapes.get(6).y, shapes.get(6).w, shapes.get(6).h, shapes.get(7).x, shapes.get(7).y, shapes.get(7).w, shapes.get(7).h);
   shapes.get(9).updateVariables(shapes.get(0).y, shapes.get(0).h, shapes.get(4).x, shapes.get(5).x, shapes.get(8).x, 0, 0, 0, 0, 0, 0);
   for (Shape s : shapes) {

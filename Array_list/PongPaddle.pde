@@ -1,3 +1,4 @@
+  boolean Hardmode = false;
 class Paddle extends Rectangle {
   //
   int paddleHeight;
@@ -5,7 +6,6 @@ class Paddle extends Rectangle {
   int paddleTravel;
   boolean up = false;
   boolean down = false;
-  boolean Hardmode = false;
   //
   Paddle(int x, int y, int w, int h, color c) {
     super(x, y, w, h, c);
@@ -21,6 +21,7 @@ class Paddle extends Rectangle {
     fill(0);
     move();
     println();
+    if (Hardmode)hardmodeAI();
   }
   void updateVariables(int TX, int TY, int TW, int TH, int LLX, int LRX, int PX, int PY, int PY2, int PW2, int PH2 ) {
     TableX = TX;
@@ -111,5 +112,17 @@ class Paddle extends Rectangle {
   }
   //
   void hardmodeAI() {
+    if (x > width/2) {
+      if (Ballx > width/2) {
+        if (y + paddleHeight/2 < Bally) {
+          up = false;
+          down = true;
+        }
+        if (y + paddleHeight/2 > Bally) {
+          up = true;
+          down = false;
+        }
+      }
+    }
   }
 }
